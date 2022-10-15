@@ -4,11 +4,13 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/tehnicals/MyMovie/app/src/main/res/font/font.xml" value="0.21296296296296297" />
-        <entry key="..\:/tehnicals/MyMovie/app/src/main/res/layout/activity_main.xml" value="0.25" />
-        <entry key="..\:/tehnicals/MyMovie/app/src/main/res/layout/card_row.xml" value="0.536" />
-        <entry key="..\:/tehnicals/MyMovie/app/src/main/res/layout/fragment_detail.xml" value="0.152" />
+        <entry key="..\:/tehnicals/MyMovie/app/src/main/res/layout/activity_main.xml" value="0.176" />
+        <entry key="..\:/tehnicals/MyMovie/app/src/main/res/layout/card_row.xml" value="0.2761752136752137" />
+        <entry key="..\:/tehnicals/MyMovie/app/src/main/res/layout/fragment_detail.xml" value="0.2" />
         <entry key="..\:/tehnicals/MyMovie/app/src/main/res/layout/fragment_favourites.xml" value="0.1" />
         <entry key="..\:/tehnicals/MyMovie/app/src/main/res/layout/fragment_main.xml" value="0.1" />
+        <entry key="..\:/tehnicals/MyMovie/app/src/main/res/layout/fragment_root.xml" value="0.25" />
+        <entry key="..\:/tehnicals/MyMovie/app/src/main/res/layout/scrol_detail.xml" value="0.24895833333333334" />
       </map>
     </option>
   </component>

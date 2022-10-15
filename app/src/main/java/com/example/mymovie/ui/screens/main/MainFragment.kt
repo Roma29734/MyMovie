@@ -43,8 +43,5 @@ class MainFragment : Fragment() {
             list?.body()?.let { adapter.setData(it.results) }
         }
     }
-//    override fun onDestroyView() {
-//        super.onDestroyView()
-//        binding = null
-//    }
+
 }

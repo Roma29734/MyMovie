@@ -12,8 +12,7 @@ import com.example.mymovie.databinding.FragmentFavouritesBinding
 
 class FavouritesFragment : Fragment() {
 
-    private var _binding: FragmentFavouritesBinding? = null
-    private val binding = _binding!!
+    private lateinit var binding: FragmentFavouritesBinding
 
     private lateinit var adapter: FavouritesAdapter
 
@@ -25,17 +24,12 @@ class FavouritesFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         favouritesViewModel = ViewModelProvider(this)[FavouritesViewModel::class.java]
-        _binding = FragmentFavouritesBinding.inflate(inflater, container, false)
+        binding = FragmentFavouritesBinding.inflate(inflater, container, false)
 
 //        adapter, recycler
         adapter = FavouritesAdapter()
         recyclerView = binding.favouritesRecycler
 //        recyclerView.adapter = adapter
         return binding.root
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
     }
 }

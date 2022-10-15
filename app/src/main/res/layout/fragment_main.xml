@@ -7,7 +7,6 @@
     tools:context=".ui.screens.main.MainFragment"
     android:background="@color/mainBackground">
 
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/mainRecycler"
         android:layout_width="0dp"
@@ -16,5 +15,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:listitem="@layout/card_row"/>
+        tools:listitem="@layout/card_row" />
 </androidx.constraintlayout.widget.ConstraintLayout>
