@@ -7,14 +7,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.get
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mymovie.R
 import com.example.mymovie.databinding.FragmentMainBinding
 
 class MainFragment : Fragment() {
 
-    private var _binding: FragmentMainBinding? = null
-    private val binding = _binding!!
+    private lateinit var binding: FragmentMainBinding
 
     private lateinit var adapter: MainAdapter
 
@@ -26,12 +26,13 @@ class MainFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         mainViewModel = ViewModelProvider(this)[MainViewModel::class.java]
-        _binding = FragmentMainBinding.inflate(inflater, container, false)
+        binding = FragmentMainBinding.inflate(inflater, container, false)
 
 //        adapter, recycler
         adapter = MainAdapter()
         recyclerView = binding.mainRecycler
         recyclerView.adapter = adapter
+        recyclerView.layoutManager = LinearLayoutManager(requireContext())
         return binding.root
     }
 
@@ -42,8 +43,8 @@ class MainFragment : Fragment() {
             list?.body()?.let { adapter.setData(it.results) }
         }
     }
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
-    }
+//    override fun onDestroyView() {
+//        super.onDestroyView()
+//        binding = null
+//    }
 }

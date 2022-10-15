@@ -3,6 +3,8 @@ package com.example.mymovie.ui.screens.main
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.example.mymovie.R
 
 import com.example.mymovie.data.remote.model.Result
 import com.example.mymovie.databinding.CardRowBinding
@@ -22,10 +24,10 @@ class MainAdapter : RecyclerView.Adapter<MainAdapter.MyViewHolder>() {
 
         holder.binding.textCardTitle.text = positionMovieList.title
         holder.binding.textCardDate.text = positionMovieList.release_date
-//        Glide.with(holder.itemView.context)
-//            .load(positionMovieList.poster_path)
-//            .placeholder(R.drawable.ic_launcher_background)
-//            .into(holder.binding.imageMovie)
+        Glide.with(holder.itemView.context)
+            .load(positionMovieList.poster_path)
+            .placeholder(R.drawable.ic_launcher_background)
+            .into(holder.binding.imageMovie)
     }
 
     override fun getItemCount(): Int {
