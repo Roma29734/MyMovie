@@ -38,6 +38,7 @@ class MainFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+//        mainViewModel.initMovieLocal()
         mainViewModel.getMuvieList()
         mainViewModel.movieList.observe(viewLifecycleOwner) { list ->
             list?.body()?.let { adapter.setData(it.results) }

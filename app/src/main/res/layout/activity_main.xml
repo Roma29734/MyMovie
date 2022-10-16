@@ -13,7 +13,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:background="@color/mainBackground"
+        android:background="@color/mainBar"
         app:titleTextColor="@color/white"
         app:titleTextAppearance="@style/TitleBarTextAppearance"
         app:layout_scrollFlags="scroll|enterAlways|snap"/>

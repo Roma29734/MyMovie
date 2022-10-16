@@ -1,12 +1,17 @@
 package com.example.mymovie.data.local.repository
 
 import androidx.lifecycle.LiveData
+import com.example.mymovie.data.local.dao.MovieDao
 import com.example.mymovie.data.remote.model.Result
 
-interface MovieRepository {
-    val readlAllMovie: LiveData<List<Result>>
+class MovieRepository(private val movieDao: MovieDao) {
+    val readlAllMovie: LiveData<List<Result>> = movieDao.getAllMovie()
 
-    suspend fun insertMovie(movieItemModel: Result, onSuccess:() -> Unit)
+    suspend fun insertMovie(movieItemModel: Result) {
+        movieDao.insertMovie(movieItemModel)
+    }
 
-    suspend fun deleteMovie(movieItemModel: Result, onSuccess:() -> Unit)
+    suspend fun deleteMovie(movieItemModel: Result) {
+        movieDao.deleteMovie(movieItemModel)
+    }
 }

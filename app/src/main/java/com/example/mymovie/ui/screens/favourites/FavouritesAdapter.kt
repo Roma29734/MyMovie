@@ -2,9 +2,14 @@ package com.example.mymovie.ui.screens.favourites
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.example.mymovie.R
 import com.example.mymovie.data.remote.model.Result
 import com.example.mymovie.databinding.CardRowBinding
+import com.example.mymovie.ui.root.RootFragmentDirections
+import com.example.mymovie.utils.IMAGE_DOP
 
 class FavouritesAdapter : RecyclerView.Adapter<FavouritesAdapter.MyViewHolder>() {
 
@@ -17,7 +22,20 @@ class FavouritesAdapter : RecyclerView.Adapter<FavouritesAdapter.MyViewHolder>()
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        TODO("Not yet implemented")
+        val positionFavouritesList = favouritesMovieList[position]
+
+        holder.binding.textCardTitle.text = positionFavouritesList.title
+        holder.binding.textCardDate.text = positionFavouritesList.release_date
+
+        Glide.with(holder.itemView.context)
+            .load("$IMAGE_DOP${positionFavouritesList.poster_path}")
+            .placeholder(R.drawable.ic_launcher_background)
+            .into(holder.binding.imageMovie)
+
+        holder.binding.rowCard.setOnClickListener {
+            val action = RootFragmentDirections.actionRootFragmentToDetailFragment(positionFavouritesList)
+            holder.itemView.findNavController().navigate(action)
+        }
     }
 
     override fun getItemCount(): Int {

@@ -10,6 +10,7 @@ import com.example.mymovie.R
 import com.example.mymovie.data.remote.model.Result
 import com.example.mymovie.databinding.CardRowBinding
 import com.example.mymovie.ui.root.RootFragmentDirections
+import com.example.mymovie.utils.IMAGE_DOP
 
 class MainAdapter : RecyclerView.Adapter<MainAdapter.MyViewHolder>() {
 
@@ -27,7 +28,7 @@ class MainAdapter : RecyclerView.Adapter<MainAdapter.MyViewHolder>() {
         holder.binding.textCardTitle.text = positionMovieList.title
         holder.binding.textCardDate.text = positionMovieList.release_date
         Glide.with(holder.itemView.context)
-            .load("https://www.themoviedb.org/t/p/w600_and_h900_bestv2${positionMovieList.poster_path}")
+            .load("$IMAGE_DOP${positionMovieList.poster_path}")
             .placeholder(R.drawable.ic_launcher_background)
             .into(holder.binding.imageMovie)
 

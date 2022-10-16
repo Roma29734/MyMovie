@@ -6,8 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.mymovie.R
 import com.example.mymovie.databinding.FragmentFavouritesBinding
 
 class FavouritesFragment : Fragment() {
@@ -29,7 +29,16 @@ class FavouritesFragment : Fragment() {
 //        adapter, recycler
         adapter = FavouritesAdapter()
         recyclerView = binding.favouritesRecycler
-//        recyclerView.adapter = adapter
+        recyclerView.adapter = adapter
+        recyclerView.layoutManager = LinearLayoutManager(requireContext())
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        favouritesViewModel.readFavouritesMovei.observe(viewLifecycleOwner) {list ->
+            adapter.setData(list)
+        }
     }
 }

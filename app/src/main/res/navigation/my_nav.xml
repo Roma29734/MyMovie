@@ -22,7 +22,7 @@
     <fragment
         android:id="@+id/detailFragment"
         android:name="com.example.mymovie.ui.screens.detail.DetailFragment"
-        android:label="fragment_detail"
+        android:label=""
         tools:layout="@layout/fragment_detail" >
         <argument
             android:name="moviewModel"
@@ -31,7 +31,7 @@
     <fragment
         android:id="@+id/rootFragment"
         android:name="com.example.mymovie.ui.root.RootFragment"
-        android:label="fragment_root"
+        android:label="Movie"
         tools:layout="@layout/fragment_root" >
         <action
             android:id="@+id/action_rootFragment_to_detailFragment"
