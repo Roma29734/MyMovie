@@ -3,13 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/my_nav"
-    app:startDestination="@id/rootFragment">
+    app:startDestination="@id/home">
 
     <fragment
-        android:id="@+id/mainFragment"
-        android:name="com.example.mymovie.ui.screens.main.MainFragment"
+        android:id="@+id/popularFragment"
+        android:name="com.example.mymovie.ui.screens.popular.PopularFragment"
         android:label="fragment_main"
-        tools:layout="@layout/fragment_main" >
+        tools:layout="@layout/fragment_popular" >
         <action
             android:id="@+id/action_mainFragment_to_detailFragment"
             app:destination="@id/detailFragment" />
@@ -29,12 +29,22 @@
             app:argType="com.example.mymovie.data.remote.model.Result" />
     </fragment>
     <fragment
-        android:id="@+id/rootFragment"
-        android:name="com.example.mymovie.ui.root.RootFragment"
+        android:id="@+id/home"
+        android:name="com.example.mymovie.ui.screens.home.HomeFragment"
         android:label="Movie"
-        tools:layout="@layout/fragment_root" >
+        tools:layout="@layout/fragment_home" >
         <action
             android:id="@+id/action_rootFragment_to_detailFragment"
             app:destination="@id/detailFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/profile"
+        android:name="com.example.mymovie.ui.screens.profile.ProfileFragment"
+        android:label="Профиль"
+        tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/search"
+        android:name="com.example.mymovie.ui.screens.search.SearchFragment"
+        android:label="Поиск"
+        tools:layout="@layout/fragment_search" />
 </navigation>

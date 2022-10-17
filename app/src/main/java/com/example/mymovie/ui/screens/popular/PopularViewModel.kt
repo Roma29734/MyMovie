@@ -1,9 +1,8 @@
-package com.example.mymovie.ui.screens.main
+package com.example.mymovie.ui.screens.popular
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.mymovie.data.local.MovieDataBase
 import com.example.mymovie.data.local.repository.MovieRepository
@@ -12,7 +11,7 @@ import com.example.mymovie.data.remote.repository.RemoteRepository
 import kotlinx.coroutines.launch
 import retrofit2.Response
 
-class MainViewModel(application: Application): AndroidViewModel(application) {
+class PopularViewModel(application: Application): AndroidViewModel(application) {
     private var repository: RemoteRepository = RemoteRepository()
 
     val  movieList: MutableLiveData<Response<movieModel>> = MutableLiveData()

@@ -8,7 +8,7 @@ import com.bumptech.glide.Glide
 import com.example.mymovie.R
 import com.example.mymovie.data.remote.model.Result
 import com.example.mymovie.databinding.CardRowBinding
-import com.example.mymovie.ui.root.RootFragmentDirections
+import com.example.mymovie.ui.screens.home.HomeFragmentDirections
 import com.example.mymovie.utils.IMAGE_DOP
 
 class FavouritesAdapter : RecyclerView.Adapter<FavouritesAdapter.MyViewHolder>() {
@@ -33,7 +33,7 @@ class FavouritesAdapter : RecyclerView.Adapter<FavouritesAdapter.MyViewHolder>()
             .into(holder.binding.imageMovie)
 
         holder.binding.rowCard.setOnClickListener {
-            val action = RootFragmentDirections.actionRootFragmentToDetailFragment(positionFavouritesList)
+            val action = HomeFragmentDirections.actionRootFragmentToDetailFragment(positionFavouritesList)
             holder.itemView.findNavController().navigate(action)
         }
     }

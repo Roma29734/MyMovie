@@ -1,4 +1,4 @@
-package com.example.mymovie.ui.root
+package com.example.mymovie.ui.screens.home
 
 import android.content.Context
 import android.os.Bundle
@@ -9,9 +9,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.FragmentActivity
 import com.example.mymovie.R
 import com.google.android.material.tabs.TabLayoutMediator
-import kotlinx.android.synthetic.main.fragment_root.view.*
+import kotlinx.android.synthetic.main.fragment_home.view.*
 
-class RootFragment : Fragment() {
+class HomeFragment : Fragment() {
 
     private var contex: Context?= null
 
@@ -27,9 +27,9 @@ class RootFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        val view =  inflater.inflate(R.layout.fragment_root, container, false)
+        val view =  inflater.inflate(R.layout.fragment_home, container, false)
 
-        view.viewPager.adapter = ViewPagerAdapter(contex as FragmentActivity)
+        view.viewPager.adapter = HomeViewPagerAdapter(contex as FragmentActivity)
 
         TabLayoutMediator(view.tableLayout, view.viewPager) {
                 tab, pos ->

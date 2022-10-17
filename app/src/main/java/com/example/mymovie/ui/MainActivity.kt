@@ -8,7 +8,9 @@ import androidx.navigation.Navigation
 import androidx.navigation.findNavController
 
 import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
+import androidx.navigation.ui.setupWithNavController
 import com.example.mymovie.R
 import com.example.mymovie.databinding.ActivityMainBinding
 import kotlinx.android.synthetic.main.activity_main.*
@@ -30,7 +32,18 @@ class MainActivity : AppCompatActivity() {
         // Instantiate the navController using the NavHostFragment
         navController = navHostFragment.navController
 //         Make sure actions in the ActionBar get propagated to the NavController
-        setupActionBarWithNavController(navController)
+
+
+
+        val appBarConfiguration = AppBarConfiguration(setOf(
+            R.id.profile,
+            R.id.search,
+            R.id.home
+        ))
+        setupActionBarWithNavController(navController, appBarConfiguration)
+
+        binding.bottobNavigation.setupWithNavController(navController)
+
     }
     override fun onSupportNavigateUp(): Boolean {
         val navController = Navigation.findNavController(nav_host)
