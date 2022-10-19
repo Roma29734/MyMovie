@@ -36,11 +36,11 @@
         android:id="@+id/bottobNavigation"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:background="@color/mainBar"
+        app:itemIconTint="@drawable/bottom_nav_item_color"
+        app:itemTextColor="@drawable/bottom_nav_item_color"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/Mytoolbar"
         app:layout_constraintStart_toStartOf="parent"
-        android:background="@color/mainBar"
-        app:itemTextColor="@drawable/bottom_nav_item_color"
-        app:itemIconTint="@drawable/bottom_nav_item_color"
-        app:menu="@menu/botom_bar_item"/>
+        app:menu="@menu/botom_bar_item" />
 </androidx.constraintlayout.widget.ConstraintLayout>

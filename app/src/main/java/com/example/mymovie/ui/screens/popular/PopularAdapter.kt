@@ -33,12 +33,6 @@ class PopularAdapter : RecyclerView.Adapter<PopularAdapter.MyViewHolder>() {
             .placeholder(R.drawable.ic_launcher_background)
             .into(holder.binding.imageMovie)
 
-//        holder.itemView.rowLayout.setOnClickListener {
-//            val action = MainFragmentDirections.actionMainFragmentToUpdateFragment(currentItem)
-//            holder.itemView.findNavController().navigate(action)
-//        }
-
-
         holder.binding.rowCard.setOnClickListener {
             val action = HomeFragmentDirections.actionRootFragmentToDetailFragment(positionMovieList)
             holder.itemView.findNavController().navigate(action)
