@@ -8,12 +8,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import com.example.mymovie.R
 import com.example.mymovie.databinding.FragmentPopularBinding
 import com.example.mymovie.databinding.FragmentProfileBinding
 import com.example.mymovie.ui.MainActivity
 import com.example.mymovie.ui.auntification.AuthenticationActivity
 import com.google.firebase.auth.FirebaseAuth
+import kotlinx.coroutines.launch
 import java.lang.System.exit
 
 class ProfileFragment : Fragment() {
@@ -51,7 +53,9 @@ class ProfileFragment : Fragment() {
     fun dialogExit() {
         val builder = AlertDialog.Builder(context)
         builder.setPositiveButton("Yes") { _, _ ->
-            profViewModel.exit()
+            lifecycleScope.launch {
+                profViewModel.exit()
+            }
             Toast.makeText(context, "Вы успешно вышли", Toast.LENGTH_SHORT).show()
             val inten = (requireActivity() as MainActivity).goToRegister()
             inten

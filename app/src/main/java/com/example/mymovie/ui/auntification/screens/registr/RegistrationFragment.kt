@@ -1,22 +1,22 @@
 package com.example.mymovie.ui.auntification.screens.registr
 
 import android.os.Bundle
-import android.text.TextUtils
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.view.isInvisible
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.Navigation
 import com.example.mymovie.databinding.FragmentRegistrationBinding
+import com.example.mymovie.ui.auntification.AuthenticationActivity
+import com.example.mymovie.data.remote.firebase.Resours
 
 
 class RegistrationFragment : Fragment() {
 
     lateinit var binding: FragmentRegistrationBinding
     lateinit var regViewModel: RegistrationVIewModel
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -25,26 +25,31 @@ class RegistrationFragment : Fragment() {
         regViewModel = ViewModelProvider(this)[RegistrationVIewModel::class.java]
         binding = FragmentRegistrationBinding.inflate(inflater, container, false)
 
-
         return binding.root
     }
-
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.matButRegistr.setOnClickListener {
-            if(inputCheck(binding.tiEmail.text.toString(), binding.tiPassword.text.toString())){
-                regViewModel.registrNewUser(binding.tiEmail.text.toString(), binding.tiPassword.text.toString())
-                Navigation.findNavController(view).popBackStack()
-            } else {
-                Toast.makeText(context, "Поля пусты", Toast.LENGTH_SHORT).show()
+
+         binding.matButRegistr.setOnClickListener {
+            regViewModel.registration(binding.tiEmail.text.toString(), binding.tiPassword.text.toString())
+            regViewModel.state.observe(viewLifecycleOwner) { state ->
+                when(state) {
+                    is Resours.Failure -> {
+                        Toast.makeText(context, "Возникла ошибка ${state.exception}", Toast.LENGTH_SHORT).show()
+                        binding.progressBar.isInvisible
+                    }
+                    Resours.Loading -> {
+                        binding.progressBar.visibility
+                    }
+                    is Resours.Success -> {
+                        Toast.makeText(context, "Вы успешно зарегестрировались", Toast.LENGTH_SHORT).show()
+                        binding.progressBar.isInvisible
+                        (requireActivity() as AuthenticationActivity).goToMain()
+                    }
+                }
             }
         }
     }
-
-    private fun inputCheck (title: String, subTitle: String): Boolean {
-        return !(TextUtils.isEmpty(title) && TextUtils.isEmpty(subTitle))
-    }
-
 }

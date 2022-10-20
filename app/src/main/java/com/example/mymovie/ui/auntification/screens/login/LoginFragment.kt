@@ -1,22 +1,18 @@
 package com.example.mymovie.ui.auntification.screens.login
 
-import android.content.Intent
+
 import android.os.Bundle
-import android.text.TextUtils
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.lifecycleScope
 import androidx.navigation.Navigation
 import com.example.mymovie.R
 import com.example.mymovie.databinding.FragmentLoginBinding
-import com.example.mymovie.ui.MainActivity
 import com.example.mymovie.ui.auntification.AuthenticationActivity
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
+import com.example.mymovie.data.remote.firebase.Resours
 
 
 class LoginFragment : Fragment() {
@@ -34,30 +30,30 @@ class LoginFragment : Fragment() {
 
         return binding.root
     }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        binding.textGoToRegister.setOnClickListener {
-            Navigation.findNavController(view).navigate(R.id.action_loginFragment_to_registrationFragment)
-        }
-
         binding.matButtonGo.setOnClickListener {
-            if(inputCheck(binding.tiEmail.text.toString(), binding.tiPassword.text.toString())) {
-                loginViewModel.singUser(binding.tiEmail.text.toString(), binding.tiPassword.text.toString())
-                binding.textViewDalaee.text = "Дальше"
-
-                binding.textViewDalaee.setOnClickListener {
-                    val inten = (requireActivity() as AuthenticationActivity).goToMain()
-                    inten
+            loginViewModel.singIn(binding.tiEmail.text.toString(), binding.tiPassword.text.toString())
+            loginViewModel.state.observe(viewLifecycleOwner) { state ->
+                when(state) {
+                    is Resours.Failure -> {
+                        Toast.makeText(context, "Возникла ошибка ${state.exception}", Toast.LENGTH_SHORT).show()
+                        binding.progressBar.visibility = View.INVISIBLE
+                    }
+                    Resours.Loading -> {
+                        binding.progressBar.visibility = View.VISIBLE
+                    }
+                    is Resours.Success -> {
+                        Toast.makeText(context, "Вы успешно зарегестрировались", Toast.LENGTH_SHORT).show()
+                        binding.progressBar.visibility = View.INVISIBLE
+                        (requireActivity() as AuthenticationActivity).goToMain()
+                    }
                 }
-            } else {
-                Toast.makeText(context, "Поля пусты", Toast.LENGTH_SHORT).show()
             }
         }
-    }
 
-    private fun inputCheck (title: String, subTitle: String): Boolean {
-        return !(TextUtils.isEmpty(title) && TextUtils.isEmpty(subTitle))
+        binding.textGotoRegistr.setOnClickListener {
+            Navigation.findNavController(view).navigate(R.id.action_loginFragment_to_registrationFragment)
+        }
     }
 }

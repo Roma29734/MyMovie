@@ -55,12 +55,23 @@
         android:id="@+id/matButRegistr"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
         android:layout_marginTop="32dp"
         android:fontFamily="@font/montserrat_semi_bold"
         android:text="Зарегистрироваться"
         android:textColor="@color/mainBackground"
         android:textSize="12dp"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/tiPassword"
+        app:layout_constraintStart_toStartOf="@+id/tiPassword"
         app:layout_constraintTop_toBottomOf="@+id/tiPassword" />
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:indeterminateOnly="true"
+        android:visibility="invisible"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

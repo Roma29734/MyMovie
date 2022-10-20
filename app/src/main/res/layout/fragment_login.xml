@@ -27,8 +27,7 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="56dp"
         android:layout_marginEnd="32dp"
-        android:hint="@string/email"
-        android:minHeight="48dp"
+        android:hint="Email"
         android:textColorHint="@color/mainGrey"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
@@ -42,8 +41,7 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="32dp"
-        android:hint="@string/pasword"
-        android:minHeight="48dp"
+        android:hint="Пароль"
         android:textColorHint="@color/mainGrey"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
@@ -56,35 +54,33 @@
         android:id="@+id/matButtonGo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
         android:layout_marginTop="32dp"
-        android:fontFamily="@font/montserrat_bold"
-        android:text="@string/sign_in"
+        android:fontFamily="@font/montserrat_semi_bold"
+        android:text="Войти"
         android:textColor="@color/mainBackground"
-        app:layout_constraintStart_toStartOf="parent"
+        android:textSize="12dp"
+        app:layout_constraintStart_toStartOf="@+id/tiPassword"
         app:layout_constraintTop_toBottomOf="@+id/tiPassword" />
 
     <TextView
-        android:id="@+id/textGoToRegister"
+        android:id="@+id/textGotoRegistr"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="150dp"
-        android:text="@string/Registration"
+        android:layout_marginStart="16dp"
+        android:text="Регистрация"
         android:textColor="@color/mainGrey"
         app:layout_constraintBottom_toBottomOf="@+id/matButtonGo"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/matButtonGo"
         app:layout_constraintTop_toTopOf="@+id/matButtonGo" />
 
-    <TextView
-        android:id="@+id/textViewDalaee"
+    <ProgressBar
+        android:id="@+id/progress_bar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="22dp"
-        android:textColor="@color/white"
-        app:layout_constraintEnd_toEndOf="@+id/matButtonGo"
-        app:layout_constraintStart_toStartOf="@+id/matButtonGo"
-        app:layout_constraintTop_toBottomOf="@+id/matButtonGo" />
-
-
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:indeterminateOnly="true"
+        android:visibility="invisible"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
