@@ -35,7 +35,10 @@ class HomeFragment : Fragment() {
                     tab.text = "Популярные фильмы"
                 }
                 1 -> {
-                    tab.text = "Избранные фильмы"
+                    tab.text = "Лучшие рейтинги"
+                }
+                2 -> {
+                    tab.text = "Предстоящие"
                 }
             }
         }.attach()

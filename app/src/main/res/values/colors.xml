@@ -14,4 +14,5 @@
     <color name="mainBackground">#151724</color>
     <color name="mainBar">#1C0F30</color>
     <color name="mainGrey">#B1AFAF</color>
+    <color name="cardView">#250D4A</color>
 </resources>

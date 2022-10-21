@@ -6,10 +6,19 @@
         android:id="@+id/home"
         android:icon="@drawable/ic_home_bar"
         />
-    <item android:title="Search"
+
+    <item
+        android:title="Избранное"
+        android:id="@+id/favourites"
+        android:icon="@drawable/ic_star_non_state"/>
+
+    <item
+        android:title="Search"
         android:id="@+id/search"
         android:icon="@drawable/ic_search_bar"/>
+
     <item android:title="Profile"
         android:id="@+id/profile"
         android:icon="@drawable/ic_person_bar"/>
+
 </menu>

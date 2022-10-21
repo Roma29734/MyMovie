@@ -1,4 +1,4 @@
-package com.example.mymovie.ui.screens.favourites
+package com.example.mymovie.ui.screens.viewPager.upcoming
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -9,11 +9,12 @@ import com.example.mymovie.R
 import com.example.mymovie.data.model.Result
 import com.example.mymovie.databinding.CardVerticalRowBinding
 import com.example.mymovie.ui.screens.home.HomeFragmentDirections
+import com.example.mymovie.ui.screens.viewPager.topReted.TopRatedAdapter
 import com.example.mymovie.utils.IMAGE_DOP
 
-class FavouritesAdapter : RecyclerView.Adapter<FavouritesAdapter.MyViewHolder>() {
+class UpcomingAdapter :RecyclerView.Adapter<UpcomingAdapter.MyViewHolder>(){
 
-    private var favouritesMovieList = emptyList<Result>()
+    private var upcomingList = emptyList<Result>()
 
     inner class MyViewHolder(val binding: CardVerticalRowBinding): RecyclerView.ViewHolder(binding.root)
 
@@ -22,28 +23,27 @@ class FavouritesAdapter : RecyclerView.Adapter<FavouritesAdapter.MyViewHolder>()
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        val positionFavouritesList = favouritesMovieList[position]
+        val positionMovieList = upcomingList[position]
 
-        holder.binding.textCardTitle.text = positionFavouritesList.title
-        holder.binding.textCardDate.text = positionFavouritesList.release_date
-
+        holder.binding.textCardTitle.text = positionMovieList.title
+        holder.binding.textCardDate.text = positionMovieList.release_date
         Glide.with(holder.itemView.context)
-            .load("$IMAGE_DOP${positionFavouritesList.poster_path}")
+            .load("$IMAGE_DOP${positionMovieList.poster_path}")
             .placeholder(R.drawable.ic_launcher_background)
             .into(holder.binding.imageMovie)
 
         holder.binding.rowCard.setOnClickListener {
-            val action = FavouritesFragmentDirections.actionFavouritesToDetailFragment(positionFavouritesList)
+            val action = HomeFragmentDirections.actionRootFragmentToDetailFragment(positionMovieList)
             holder.itemView.findNavController().navigate(action)
         }
     }
 
     override fun getItemCount(): Int {
-        return favouritesMovieList.size
+        return  upcomingList.size
     }
 
-    fun setData(list: List<Result>) {
-        favouritesMovieList = list
+    fun setUpcomingList(list: List<Result>) {
+        upcomingList = list
         notifyDataSetChanged()
     }
 }

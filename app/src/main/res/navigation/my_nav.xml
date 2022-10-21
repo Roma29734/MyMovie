@@ -7,18 +7,18 @@
 
     <fragment
         android:id="@+id/popularFragment"
-        android:name="com.example.mymovie.ui.screens.popular.PopularFragment"
+        android:name="com.example.mymovie.ui.screens.viewPager.popular.PopularFragment"
         android:label="fragment_main"
-        tools:layout="@layout/fragment_popular" >
+        tools:layout="@layout/fragment_popular" />
+    <fragment
+        android:id="@+id/favourites"
+        android:name="com.example.mymovie.ui.screens.favourites.FavouritesFragment"
+        android:label="Избранное"
+        tools:layout="@layout/fragment_favourites" >
         <action
-            android:id="@+id/action_mainFragment_to_detailFragment"
+            android:id="@+id/action_favourites_to_detailFragment"
             app:destination="@id/detailFragment" />
     </fragment>
-    <fragment
-        android:id="@+id/favouritesFragment"
-        android:name="com.example.mymovie.ui.screens.favourites.FavouritesFragment"
-        android:label="fragment_favourites"
-        tools:layout="@layout/fragment_favourites" />
     <fragment
         android:id="@+id/detailFragment"
         android:name="com.example.mymovie.ui.screens.detail.DetailFragment"
@@ -26,7 +26,7 @@
         tools:layout="@layout/fragment_detail" >
         <argument
             android:name="moviewModel"
-            app:argType="com.example.mymovie.data.remote.model.Result" />
+            app:argType="com.example.mymovie.data.model.Result" />
     </fragment>
     <fragment
         android:id="@+id/home"

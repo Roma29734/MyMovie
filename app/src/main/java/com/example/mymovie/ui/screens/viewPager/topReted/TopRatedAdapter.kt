@@ -1,4 +1,4 @@
-package com.example.mymovie.ui.screens.popular
+package com.example.mymovie.ui.screens.viewPager.topReted
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -6,15 +6,14 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.mymovie.R
-
 import com.example.mymovie.data.model.Result
 import com.example.mymovie.databinding.CardVerticalRowBinding
 import com.example.mymovie.ui.screens.home.HomeFragmentDirections
 import com.example.mymovie.utils.IMAGE_DOP
 
-class PopularAdapter : RecyclerView.Adapter<PopularAdapter.MyViewHolder>() {
+class TopRatedAdapter: RecyclerView.Adapter<TopRatedAdapter.MyViewHolder>() {
 
-    private var movieList = emptyList<Result>()
+    private var topRatedList = emptyList<Result>()
 
     inner class MyViewHolder(val binding: CardVerticalRowBinding): RecyclerView.ViewHolder(binding.root)
 
@@ -23,7 +22,7 @@ class PopularAdapter : RecyclerView.Adapter<PopularAdapter.MyViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        val positionMovieList = movieList[position]
+        val positionMovieList = topRatedList[position]
 
         holder.binding.textCardTitle.text = positionMovieList.title
         holder.binding.textCardDate.text = positionMovieList.release_date
@@ -39,11 +38,11 @@ class PopularAdapter : RecyclerView.Adapter<PopularAdapter.MyViewHolder>() {
     }
 
     override fun getItemCount(): Int {
-        return movieList.size
+        return topRatedList.size
     }
 
-    fun setData(list: List<Result>) {
-        movieList = list
+    fun setTopRatedList(list: List<Result>) {
+        topRatedList = list
         notifyDataSetChanged()
     }
 }
