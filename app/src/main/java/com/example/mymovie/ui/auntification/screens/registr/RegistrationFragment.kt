@@ -31,7 +31,6 @@ class RegistrationFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
          binding.matButRegistr.setOnClickListener {
             regViewModel.registration(binding.tiEmail.text.toString(), binding.tiPassword.text.toString())
             regViewModel.state.observe(viewLifecycleOwner) { state ->

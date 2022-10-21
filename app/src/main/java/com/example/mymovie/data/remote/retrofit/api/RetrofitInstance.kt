@@ -1,4 +1,4 @@
-package com.example.mymovie.data.remote.api
+package com.example.mymovie.data.remote.retrofit.api
 
 import com.example.mymovie.utils.BASE_URL
 import retrofit2.Retrofit

@@ -1,4 +1,4 @@
-package com.example.mymovie.data.remote.model
+package com.example.mymovie.data.model
 
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize

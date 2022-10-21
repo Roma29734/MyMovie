@@ -12,15 +12,12 @@ import com.google.android.material.tabs.TabLayoutMediator
 import kotlinx.android.synthetic.main.fragment_home.view.*
 
 class HomeFragment : Fragment() {
-
     private var contex: Context?= null
-
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
         contex = context
     }
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -42,7 +39,6 @@ class HomeFragment : Fragment() {
                 }
             }
         }.attach()
-
 
         return view
     }

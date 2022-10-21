@@ -5,7 +5,7 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.mymovie.data.local.MovieDataBase
 import com.example.mymovie.data.local.repository.MovieRepository
-import com.example.mymovie.data.remote.model.Result
+import com.example.mymovie.data.model.Result
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 

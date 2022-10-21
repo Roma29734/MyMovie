@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mymovie.databinding.FragmentFavouritesBinding
@@ -30,7 +31,7 @@ class FavouritesFragment : Fragment() {
         adapter = FavouritesAdapter()
         recyclerView = binding.favouritesRecycler
         recyclerView.adapter = adapter
-        recyclerView.layoutManager = LinearLayoutManager(requireContext())
+        recyclerView.layoutManager = GridLayoutManager(context, 3)
         return binding.root
     }
 

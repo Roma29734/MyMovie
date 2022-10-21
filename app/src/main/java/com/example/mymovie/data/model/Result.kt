@@ -1,7 +1,6 @@
-package com.example.mymovie.data.remote.model
+package com.example.mymovie.data.model
 
 import android.os.Parcelable
-import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import kotlinx.android.parcel.Parcelize

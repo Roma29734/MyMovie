@@ -3,8 +3,7 @@ package com.example.mymovie.data.local.dao
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
-import com.example.mymovie.data.remote.model.Result
-import java.util.concurrent.Flow
+import com.example.mymovie.data.model.Result
 
 @Dao
 interface MovieDao {

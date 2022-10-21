@@ -6,8 +6,8 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.mymovie.data.local.MovieDataBase
 import com.example.mymovie.data.local.repository.MovieRepository
-import com.example.mymovie.data.remote.model.movieModel
-import com.example.mymovie.data.remote.repository.RemoteRepository
+import com.example.mymovie.data.model.movieModel
+import com.example.mymovie.data.remote.retrofit.repository.RemoteRepository
 import kotlinx.coroutines.launch
 import retrofit2.Response
 

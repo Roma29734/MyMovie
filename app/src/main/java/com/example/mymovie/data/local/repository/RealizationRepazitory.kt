@@ -1,8 +1,6 @@
 package com.example.mymovie.data.local.repository
 
-import androidx.lifecycle.LiveData
 import com.example.mymovie.data.local.dao.MovieDao
-import com.example.mymovie.data.remote.model.Result
 
 //class RealizationRepazitory(private val movieDao: MovieDao): MovieRepository {
 //    override val readlAllMovie: LiveData<List<Result>>

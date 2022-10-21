@@ -3,13 +3,12 @@ package com.example.mymovie.ui.screens.popular
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.mymovie.R
 
-import com.example.mymovie.data.remote.model.Result
-import com.example.mymovie.databinding.CardRowBinding
+import com.example.mymovie.data.model.Result
+import com.example.mymovie.databinding.CardVerticalRowBinding
 import com.example.mymovie.ui.screens.home.HomeFragmentDirections
 import com.example.mymovie.utils.IMAGE_DOP
 
@@ -17,10 +16,10 @@ class PopularAdapter : RecyclerView.Adapter<PopularAdapter.MyViewHolder>() {
 
     private var movieList = emptyList<Result>()
 
-    inner class MyViewHolder(val binding: CardRowBinding): RecyclerView.ViewHolder(binding.root)
+    inner class MyViewHolder(val binding: CardVerticalRowBinding): RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-        return MyViewHolder(CardRowBinding.inflate(LayoutInflater.from(parent.context), parent, false))
+        return MyViewHolder(CardVerticalRowBinding.inflate(LayoutInflater.from(parent.context), parent, false))
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
@@ -38,8 +37,6 @@ class PopularAdapter : RecyclerView.Adapter<PopularAdapter.MyViewHolder>() {
             holder.itemView.findNavController().navigate(action)
         }
     }
-
-
 
     override fun getItemCount(): Int {
         return movieList.size
