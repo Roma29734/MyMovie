@@ -42,10 +42,11 @@
         android:id="@+id/matButExit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="17dp"
         android:backgroundTint="@color/cardView"
         android:text="Выйти"
         android:textColor="@color/white"
-        tools:layout_editor_absoluteX="291dp"
-        tools:layout_editor_absoluteY="90dp" />
+        app:layout_constraintEnd_toEndOf="@+id/cardView"
+        app:layout_constraintTop_toBottomOf="@+id/cardView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

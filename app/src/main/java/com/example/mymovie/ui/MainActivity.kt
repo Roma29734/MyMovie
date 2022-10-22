@@ -17,8 +17,11 @@ import com.example.mymovie.databinding.ActivityMainBinding
 import com.example.mymovie.ui.auntification.AuthenticationActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
+import dagger.hilt.android.AndroidEntryPoint
+import dagger.hilt.android.HiltAndroidApp
 import kotlinx.android.synthetic.main.activity_main.*
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     private lateinit var navController: NavController
@@ -57,6 +60,7 @@ class MainActivity : AppCompatActivity() {
         if(firebaseAuth.currentUser == null) {
             startActivity(intent)
         }
+
     }
 
     override fun onStart() {

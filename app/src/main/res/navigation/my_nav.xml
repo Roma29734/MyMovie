@@ -22,8 +22,7 @@
     <fragment
         android:id="@+id/detailFragment"
         android:name="com.example.mymovie.ui.screens.detail.DetailFragment"
-        android:label=""
-        tools:layout="@layout/fragment_detail" >
+        tools:layout="@layout/fragment_detail">
         <argument
             android:name="moviewModel"
             app:argType="com.example.mymovie.data.model.Result" />
@@ -44,7 +43,7 @@
         tools:layout="@layout/fragment_profile" />
     <fragment
         android:id="@+id/search"
+        android:label=" "
         android:name="com.example.mymovie.ui.screens.search.SearchFragment"
-        android:label="Поиск"
         tools:layout="@layout/fragment_search" />
 </navigation>

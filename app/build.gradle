@@ -79,8 +79,13 @@ dependencies {
     //DataBinding
     kapt "com.android.databinding:compiler:3.2.0-alpha10"
 
-    implementation("com.google.dagger:hilt-android:2.38.1")
-    kapt("com.google.dagger:hilt-android-compiler:2.38.1")
+    //Hilt
+    def hiltVersion = "2.38.1"
+    implementation("com.google.dagger:hilt-android:$hiltVersion")
+    kapt("com.google.dagger:hilt-android-compiler:$hiltVersion")
+    def liveCyclerHilt = "1.0.0-alpha03"
+    implementation "androidx.hilt:hilt-lifecycle-viewmodel:$liveCyclerHilt"
+    kapt"androidx.hilt:hilt-compiler:$liveCyclerHilt"
 
     // Retrofit
     implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"

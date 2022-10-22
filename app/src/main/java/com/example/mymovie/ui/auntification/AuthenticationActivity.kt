@@ -12,11 +12,12 @@ import com.example.mymovie.R
 import com.example.mymovie.databinding.ActivityAutificationBinding
 import com.example.mymovie.ui.MainActivity
 import com.google.firebase.auth.FirebaseAuth
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_autification.*
 import kotlinx.android.synthetic.main.activity_main.*
 
+@AndroidEntryPoint
 class AuthenticationActivity : AppCompatActivity() {
-
     private lateinit var binding: ActivityAutificationBinding
     private lateinit var navController: NavController
     private  var firebaseAuth = FirebaseAuth.getInstance()

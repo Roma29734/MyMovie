@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import com.example.mymovie.R
@@ -15,21 +16,21 @@ import com.example.mymovie.databinding.FragmentProfileBinding
 import com.example.mymovie.ui.MainActivity
 import com.example.mymovie.ui.auntification.AuthenticationActivity
 import com.google.firebase.auth.FirebaseAuth
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import java.lang.System.exit
-
+@AndroidEntryPoint
 class ProfileFragment : Fragment() {
-
     private lateinit var binding: FragmentProfileBinding
     private val firebase = FirebaseAuth.getInstance().currentUser
-    private lateinit var profViewModel: ProfileViewModel
+
+    private val viewModel by viewModels<ProfileViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        profViewModel = ViewModelProvider(this)[ProfileViewModel::class.java]
         binding = FragmentProfileBinding.inflate(inflater, container, false)
 
 
@@ -54,7 +55,7 @@ class ProfileFragment : Fragment() {
         val builder = AlertDialog.Builder(context)
         builder.setPositiveButton("Yes") { _, _ ->
             lifecycleScope.launch {
-                profViewModel.exit()
+                viewModel.exit()
             }
             Toast.makeText(context, "Вы успешно вышли", Toast.LENGTH_SHORT).show()
             val inten = (requireActivity() as MainActivity).goToRegister()

@@ -5,38 +5,36 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mymovie.databinding.FragmentPopularBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class PopularFragment : Fragment() {
 
     private lateinit var binding: FragmentPopularBinding
-
     private lateinit var adapter: PopularAdapter
-
-    private lateinit var popularViewModel: PopularViewModel
-    private lateinit var recyclerView: RecyclerView
+    private val viewModel by viewModels<PopularViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        popularViewModel = ViewModelProvider(this)[PopularViewModel::class.java]
         binding = FragmentPopularBinding.inflate(inflater, container, false)
 
         adapter = PopularAdapter()
-        recyclerView = binding.mainRecycler
-        recyclerView.adapter = adapter
-        recyclerView.layoutManager = GridLayoutManager(context, 3)
+        binding.mainRecycler.adapter = adapter
+        binding.mainRecycler.layoutManager = GridLayoutManager(context, 3)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        popularViewModel.getPopularMovieList()
-        popularViewModel.movieList.observe(viewLifecycleOwner) { list ->
+        viewModel.getPopularMovieList()
+        viewModel.movieList.observe(viewLifecycleOwner) { list ->
             list?.body()?.let { adapter.setData(it.results) }
         }
     }

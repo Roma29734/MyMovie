@@ -1,33 +1,29 @@
 package com.example.mymovie.ui.screens.detail
 
-import android.app.Application
-import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.mymovie.data.local.MovieDataBase
+import com.example.mymovie.data.local.dao.MovieDao
 import com.example.mymovie.data.local.repository.MovieRepository
 import com.example.mymovie.data.model.Result
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class DetailViewModel(application: Application): AndroidViewModel(application) {
-
-    private lateinit var movieLocalRepository: MovieRepository
-
-    init {
-        val movieDao = MovieDataBase.getDataBase(application).movieDao()
-        movieLocalRepository = MovieRepository(movieDao)
-    }
-
+@HiltViewModel
+class DetailViewModel @Inject constructor(
+    private val movieRepository: MovieRepository,
+): ViewModel() {
 
     fun addFavourites(moveiModel: Result) {
         viewModelScope.launch(Dispatchers.IO) {
-            movieLocalRepository.insertMovie(moveiModel)
+            movieRepository.insertMovie(moveiModel)
         }
     }
 
     fun deleteFavourites(moveiModel: Result) {
         viewModelScope.launch(Dispatchers.IO) {
-            movieLocalRepository.deleteMovie(moveiModel)
+            movieRepository.deleteMovie(moveiModel)
         }
     }
 }

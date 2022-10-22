@@ -5,24 +5,26 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.mymovie.databinding.FragmentTopRatedBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class TopRatedFragment : Fragment() {
 
     lateinit var binding: FragmentTopRatedBinding
 
     lateinit var adapter: TopRatedAdapter
 
-    private lateinit var viewModel: TopRatedViewModel
+    private val viewModel by viewModels<TopRatedViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        viewModel = ViewModelProvider(this)[TopRatedViewModel::class.java]
         binding = FragmentTopRatedBinding.inflate(inflater, container, false)
 
         adapter = TopRatedAdapter()

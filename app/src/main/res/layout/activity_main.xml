@@ -11,13 +11,13 @@
         android:id="@+id/Mytoolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/mainBar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:background="@color/mainBar"
-        app:titleTextColor="@color/white"
+        app:layout_scrollFlags="scroll|enterAlways|snap"
         app:titleTextAppearance="@style/TitleBarTextAppearance"
-        app:layout_scrollFlags="scroll|enterAlways|snap"/>
+        app:titleTextColor="@color/white" />
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/nav_host"

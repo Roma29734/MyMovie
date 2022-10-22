@@ -3,14 +3,15 @@ package com.example.mymovie.data.remote.firebase
 import com.example.mymovie.utils.await
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
+import javax.inject.Inject
 
-class AuthenticationRepositoryImpl: AuthenticationRepository {
-    private val auth = FirebaseAuth.getInstance()
-
+class AuthenticationRepositoryImpl @Inject constructor(
+    private val firebaseAuth: FirebaseAuth
+): AuthenticationRepository {
 
     override suspend fun createUser(email: String, password: String): Resours<FirebaseUser> {
         return try {
-            val result = auth.createUserWithEmailAndPassword(email, password).await()
+            val result = firebaseAuth.createUserWithEmailAndPassword(email, password).await()
             Resours.Success(result.user!!)
         } catch (e: Exception) {
             e.printStackTrace()
@@ -21,7 +22,7 @@ class AuthenticationRepositoryImpl: AuthenticationRepository {
     override suspend fun singUser(email: String, password: String): Resours<FirebaseUser> {
 
         return try {
-            val result = auth.signInWithEmailAndPassword(email, password).await()
+            val result = firebaseAuth.signInWithEmailAndPassword(email, password).await()
             Resours.Success(result.user!!)
         } catch (e: Exception) {
             e.printStackTrace()
@@ -30,7 +31,7 @@ class AuthenticationRepositoryImpl: AuthenticationRepository {
     }
 
     override suspend fun logOut() {
-        auth.signOut()
+        firebaseAuth.signOut()
     }
 }
 

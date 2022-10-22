@@ -5,40 +5,37 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mymovie.databinding.FragmentFavouritesBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class FavouritesFragment : Fragment() {
 
     private lateinit var binding: FragmentFavouritesBinding
-
-    private lateinit var adapter: FavouritesAdapter
-
-    private lateinit var favouritesViewModel: FavouritesViewModel
-    private lateinit var recyclerView: RecyclerView
+    private var adapter =  FavouritesAdapter()
+    private val viewModel by viewModels<FavouritesViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        favouritesViewModel = ViewModelProvider(this)[FavouritesViewModel::class.java]
         binding = FragmentFavouritesBinding.inflate(inflater, container, false)
 
 //        adapter, recycler
-        adapter = FavouritesAdapter()
-        recyclerView = binding.favouritesRecycler
-        recyclerView.adapter = adapter
-        recyclerView.layoutManager = GridLayoutManager(context, 3)
+        binding.favouritesRecycler.adapter = adapter
+        binding.favouritesRecycler.layoutManager = GridLayoutManager(context, 3)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        favouritesViewModel.readFavouritesMovei.observe(viewLifecycleOwner) {list ->
+        viewModel.readFavouritesMovie.observe(viewLifecycleOwner) {list ->
             adapter.setData(list)
         }
     }
