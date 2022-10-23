@@ -53,7 +53,7 @@ class ProfileFragment : Fragment() {
 
     fun dialogExit() {
         val builder = AlertDialog.Builder(context)
-        builder.setPositiveButton("Yes") { _, _ ->
+        builder.setPositiveButton("Да") { _, _ ->
             lifecycleScope.launch {
                 viewModel.exit()
             }
@@ -61,7 +61,7 @@ class ProfileFragment : Fragment() {
             val inten = (requireActivity() as MainActivity).goToRegister()
             inten
         }
-        builder.setNegativeButton("No") { _, _ -> }
+        builder.setNegativeButton("Нет") { _, _ -> }
         builder.setTitle("Выйти?")
         builder.setMessage("Вы уверены что хотите выйти из аккаунта?")
         builder.create().show()

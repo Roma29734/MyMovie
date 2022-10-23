@@ -45,5 +45,9 @@
         android:id="@+id/search"
         android:label=" "
         android:name="com.example.mymovie.ui.screens.search.SearchFragment"
-        tools:layout="@layout/fragment_search" />
+        tools:layout="@layout/fragment_search" >
+        <action
+            android:id="@+id/action_search_to_detailFragment"
+            app:destination="@id/detailFragment" />
+    </fragment>
 </navigation>

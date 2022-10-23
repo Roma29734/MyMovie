@@ -8,5 +8,6 @@
     app:showAsAction="always"
     app:actionViewClass="androidx.appcompat.widget.SearchView"
     android:iconifiedByDefault="false"
+
     />
 </menu>
