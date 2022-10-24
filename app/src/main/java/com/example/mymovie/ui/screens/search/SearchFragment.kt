@@ -32,30 +32,6 @@ class SearchFragment : Fragment() {
         return binding.root
     }
 
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        inflater.inflate(R.menu.search_item, menu)
-        val searchView: SearchView = menu.findItem(R.id.action_search).actionView as SearchView
-        searchView.setIconifiedByDefault(false)
-
-        searchView.setOnQueryTextListener(object: SearchView.OnQueryTextListener{
-            override fun onQueryTextSubmit(query: String?): Boolean {
-                if (query != null) {
-                    searchMovie(query)
-                }
-                Log.d("searchFragment", query.toString())
-                return true
-            }
-
-            override fun onQueryTextChange(newText: String?): Boolean {
-                if (newText != null) {
-                    searchMovie(newText)
-                }
-                Log.d("searchFragment", newText.toString())
-                return true
-            }
-        })
-    }
-
     fun searchMovie(value: String) {
         viewModel.searchMovie(value)
         viewModel.movieSearchResult.observe(viewLifecycleOwner) {list ->

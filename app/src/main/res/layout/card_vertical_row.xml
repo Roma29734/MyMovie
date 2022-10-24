@@ -7,7 +7,7 @@
     android:paddingTop="16dp"
     android:paddingStart="12dp"
     android:paddingEnd="12dp"
-    android:background="@color/mainBackground"
+    android:background="@color/mainBackgroundSecond"
     android:id="@+id/row_card">
 
     <LinearLayout
@@ -27,7 +27,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
             android:fontFamily="@font/montserrat_semi_bold"
-            android:maxLength="9"
+            android:maxLength="8"
             android:textColor="@color/white"
             android:textSize="16sp"
             tools:text="Дитя тьмыЖ первая жертва " />

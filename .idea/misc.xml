@@ -7,14 +7,19 @@
         <entry key="..\:/tehnicals/MyMovie/app/src/main/res/drawable/ic_home_bar.xml" value="0.1285" />
         <entry key="..\:/tehnicals/MyMovie/app/src/main/res/drawable/ic_star_non_state.xml" value="0.1285" />
         <entry key="..\:/tehnicals/MyMovie/app/src/main/res/drawable/ic_star_yes_state.xml" value="0.1285" />
+        <entry key="..\:/tehnicals/MyMovie/app/src/main/res/drawable/roud_corner.xml" value="0.1285" />
+        <entry key="..\:/tehnicals/MyMovie/app/src/main/res/drawable/tab_indicator.xml" value="0.1285" />
+        <entry key="..\:/tehnicals/MyMovie/app/src/main/res/drawable/tab_layout_corner.xml" value="0.1285" />
         <entry key="..\:/tehnicals/MyMovie/app/src/main/res/font/font.xml" value="0.21296296296296297" />
         <entry key="..\:/tehnicals/MyMovie/app/src/main/res/layout-w1240dp/activity_login.xml" value="0.201953125" />
         <entry key="..\:/tehnicals/MyMovie/app/src/main/res/layout-w936dp/activity_login.xml" value="0.1875" />
         <entry key="..\:/tehnicals/MyMovie/app/src/main/res/layout/activity_autification.xml" value="0.25" />
         <entry key="..\:/tehnicals/MyMovie/app/src/main/res/layout/activity_login.xml" value="0.25" />
-        <entry key="..\:/tehnicals/MyMovie/app/src/main/res/layout/activity_main.xml" value="0.176" />
+        <entry key="..\:/tehnicals/MyMovie/app/src/main/res/layout/activity_main.xml" value="0.152" />
         <entry key="..\:/tehnicals/MyMovie/app/src/main/res/layout/card_row.xml" value="0.264" />
         <entry key="..\:/tehnicals/MyMovie/app/src/main/res/layout/card_vertical_row.xml" value="0.296987087517934" />
+        <entry key="..\:/tehnicals/MyMovie/app/src/main/res/layout/custom_action_bar.xml" value="0.24895833333333334" />
+        <entry key="..\:/tehnicals/MyMovie/app/src/main/res/layout/custom_text_action_bar.xml" value="0.25" />
         <entry key="..\:/tehnicals/MyMovie/app/src/main/res/layout/fragment_detail.xml" value="0.264" />
         <entry key="..\:/tehnicals/MyMovie/app/src/main/res/layout/fragment_favourites.xml" value="0.1" />
         <entry key="..\:/tehnicals/MyMovie/app/src/main/res/layout/fragment_home.xml" value="0.25" />
@@ -24,7 +29,7 @@
         <entry key="..\:/tehnicals/MyMovie/app/src/main/res/layout/fragment_profile.xml" value="0.264" />
         <entry key="..\:/tehnicals/MyMovie/app/src/main/res/layout/fragment_registration.xml" value="0.264" />
         <entry key="..\:/tehnicals/MyMovie/app/src/main/res/layout/fragment_root.xml" value="0.25" />
-        <entry key="..\:/tehnicals/MyMovie/app/src/main/res/layout/fragment_search.xml" value="0.2" />
+        <entry key="..\:/tehnicals/MyMovie/app/src/main/res/layout/fragment_search.xml" value="0.4" />
         <entry key="..\:/tehnicals/MyMovie/app/src/main/res/layout/fragment_top_rated.xml" value="0.25" />
         <entry key="..\:/tehnicals/MyMovie/app/src/main/res/layout/fragment_upcoming.xml" value="0.25" />
         <entry key="..\:/tehnicals/MyMovie/app/src/main/res/layout/scrol_detail.xml" value="0.24895833333333334" />

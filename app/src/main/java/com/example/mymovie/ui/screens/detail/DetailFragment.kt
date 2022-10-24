@@ -10,6 +10,7 @@ import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import com.example.mymovie.R
 import com.example.mymovie.databinding.FragmentDetailBinding
+import com.example.mymovie.ui.MainActivity
 import com.example.mymovie.utils.SaveShared
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -66,5 +67,10 @@ class DetailFragment : Fragment() {
             }
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    override fun onStart() {
+        super.onStart()
+        (requireActivity() as MainActivity).setColorBackground()
     }
 }

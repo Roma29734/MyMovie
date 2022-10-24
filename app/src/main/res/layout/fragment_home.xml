@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.screens.home.HomeFragment"
-    android:background="@color/mainBackground">
+    android:background="@color/mainBackgroundSecond">
 
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/viewPager"
@@ -21,11 +21,13 @@
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tableLayout"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="@color/mainBar"
+        android:layout_height="wrap_content"
+        android:background="@drawable/tab_layout_corner"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:tabTextColor="@color/white" />
-
+        app:tabTextColor="@color/white"
+        app:tabIndicatorColor="@color/white"
+        app:tabIndicatorFullWidth="false"
+        app:tabIndicator="@drawable/tab_indicator"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,10 +4,9 @@ package com.example.mymovie.ui
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.ActionBar
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
-import androidx.navigation.findNavController
-
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
@@ -16,9 +15,7 @@ import com.example.mymovie.R
 import com.example.mymovie.databinding.ActivityMainBinding
 import com.example.mymovie.ui.auntification.AuthenticationActivity
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
 import dagger.hilt.android.AndroidEntryPoint
-import dagger.hilt.android.HiltAndroidApp
 import kotlinx.android.synthetic.main.activity_main.*
 
 @AndroidEntryPoint
@@ -33,9 +30,9 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setSupportActionBar(binding.Mytoolbar)
-
         val navHostFragment = supportFragmentManager
             .findFragmentById(R.id.nav_host) as NavHostFragment
+
         // Instantiate the navController using the NavHostFragment
         navController = navHostFragment.navController
 //         Make sure actions in the ActionBar get propagated to the NavController
@@ -46,6 +43,7 @@ class MainActivity : AppCompatActivity() {
             R.id.favourites
         ))
         setupActionBarWithNavController(navController, appBarConfiguration)
+
 //
         binding.bottobNavigation.setupWithNavController(navController)
 
@@ -60,7 +58,16 @@ class MainActivity : AppCompatActivity() {
         if(firebaseAuth.currentUser == null) {
             startActivity(intent)
         }
+    }
 
+    fun setColorBackground() {
+        val color = getColor(R.color.mainBackground)
+        binding.Mytoolbar.setBackgroundColor(color)
+    }
+
+    fun setColorBar() {
+        val color = getColor(R.color.mainBarSecond)
+        binding.Mytoolbar.setBackgroundColor(color)
     }
 
     override fun onStart() {
@@ -68,3 +75,5 @@ class MainActivity : AppCompatActivity() {
         goToRegister()
     }
 }
+
+

@@ -10,8 +10,12 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.mymovie.R
 import com.example.mymovie.databinding.FragmentFavouritesBinding
+import com.example.mymovie.ui.MainActivity
+import com.example.mymovie.ui.auntification.AuthenticationActivity
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.android.synthetic.main.activity_main.*
 
 @AndroidEntryPoint
 class FavouritesFragment : Fragment() {
@@ -29,6 +33,7 @@ class FavouritesFragment : Fragment() {
 //        adapter, recycler
         binding.favouritesRecycler.adapter = adapter
         binding.favouritesRecycler.layoutManager = GridLayoutManager(context, 3)
+
         return binding.root
     }
 
