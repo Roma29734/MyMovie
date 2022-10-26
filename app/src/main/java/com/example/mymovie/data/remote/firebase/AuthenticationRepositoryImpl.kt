@@ -1,5 +1,6 @@
 package com.example.mymovie.data.remote.firebase
 
+import android.util.Log
 import com.example.mymovie.utils.await
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
@@ -26,6 +27,7 @@ class AuthenticationRepositoryImpl @Inject constructor(
             Resours.Success(result.user!!)
         } catch (e: Exception) {
             e.printStackTrace()
+            Log.d("authVIewModel","$e")
             Resours.Failure(e)
         }
     }

@@ -30,15 +30,15 @@ class RegistrationFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-         binding.matButRegistr.setOnClickListener {
-             viewModel.registration(binding.tiEmail.text.toString(), binding.tiPassword.text.toString())
-             viewModel.state.observe(viewLifecycleOwner) { state ->
+        binding.matButRegistr.setOnClickListener {
+            viewModel.registration(binding.tiEmail.text.toString(), binding.tiPassword.text.toString())
+            viewModel.state.observe(viewLifecycleOwner) { state ->
                 when(state) {
                     is Resours.Failure -> {
                         Toast.makeText(context, "Возникла ошибка ${state.exception}", Toast.LENGTH_SHORT).show()
                         binding.progressBar.isInvisible
                     }
-                    Resours.Loading -> {
+                    is Resours.Loading -> {
                         binding.progressBar.visibility
                     }
                     is Resours.Success -> {

@@ -22,6 +22,7 @@
     <fragment
         android:id="@+id/detailFragment"
         android:name="com.example.mymovie.ui.screens.detail.DetailFragment"
+        android:label=""
         tools:layout="@layout/fragment_detail">
         <argument
             android:name="moviewModel"

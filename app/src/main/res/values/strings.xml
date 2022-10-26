@@ -15,4 +15,5 @@
     <string name="sign_in">Войти</string>
     <string name="email">Email</string>
     <string name="pasword">Пароль</string>
+    <string name="no_internet">Нет интернерта</string>
 </resources>

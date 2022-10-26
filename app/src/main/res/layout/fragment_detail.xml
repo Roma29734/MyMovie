@@ -95,7 +95,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="600dp"
                 android:layout_marginStart="1dp"
-                android:layout_marginTop="12dp"
                 android:scaleType="centerCrop"
                 tools:src="@tools:sample/avatars" />
             <TextView
@@ -129,7 +128,7 @@
                 android:layout_marginStart="12dp"
                 android:layout_marginEnd="12dp"
                 android:layout_marginTop="18dp"
-                android:layout_marginBottom="18dp"
+                android:layout_marginBottom="70dp"
                 android:fontFamily="@font/montserrat_medium"
                 android:text="Члены дома Таргариенов оставляют обречённую Валирию и отправляются на запад, где обнаруживают огромную территорию, населённую враждующими королевствами."
                 android:textColor="@color/mainGrey"

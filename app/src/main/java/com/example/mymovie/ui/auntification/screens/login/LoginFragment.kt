@@ -24,10 +24,9 @@ class LoginFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         binding = FragmentLoginBinding.inflate(inflater, container, false)
-
         return binding.root
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -40,7 +39,7 @@ class LoginFragment : Fragment() {
                         Toast.makeText(context, "Возникла ошибка ${state.exception}", Toast.LENGTH_SHORT).show()
                         binding.progressBar.visibility = View.INVISIBLE
                     }
-                    Resours.Loading -> {
+                    is Resours.Loading -> {
                         binding.progressBar.visibility = View.VISIBLE
                     }
                     is Resours.Success -> {
