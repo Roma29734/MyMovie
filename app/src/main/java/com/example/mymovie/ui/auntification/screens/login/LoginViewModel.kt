@@ -14,7 +14,7 @@ import javax.inject.Inject
 @HiltViewModel
 class LoginViewModel @Inject constructor(
     private val repository: AuthenticationRepository
-): ViewModel(){
+): ViewModel() {
 
     private val _state = MutableLiveData<Resours<FirebaseUser>?>(null)
     val state: MutableLiveData<Resours<FirebaseUser>?> = _state

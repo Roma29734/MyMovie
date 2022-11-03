@@ -57,16 +57,12 @@ class MainActivity : AppCompatActivity() {
         val intent = Intent(this, AuthenticationActivity::class.java)
         if(firebaseAuth.currentUser == null) {
             startActivity(intent)
+            finish()
         }
     }
 
     fun setColorBackground() {
         val color = getColor(R.color.mainBackground)
-        binding.Mytoolbar.setBackgroundColor(color)
-    }
-
-    fun setColorBar() {
-        val color = getColor(R.color.mainBarSecond)
         binding.Mytoolbar.setBackgroundColor(color)
     }
 

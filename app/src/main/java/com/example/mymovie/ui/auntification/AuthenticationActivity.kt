@@ -51,6 +51,6 @@ class AuthenticationActivity : AppCompatActivity() {
     fun goToMain() {
         val intentuser = Intent(this, MainActivity::class.java)
         startActivity(intentuser)
+        finish()
     }
-
 }
