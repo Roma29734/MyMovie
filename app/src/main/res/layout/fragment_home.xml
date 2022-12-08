@@ -26,9 +26,18 @@
         android:background="@drawable/tab_layout_corner"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:tabTextColor="@color/white"
+        app:layout_constraintTop_toBottomOf="@+id/include"
+        app:tabIndicator="@drawable/tab_indicator"
         app:tabIndicatorColor="@color/white"
         app:tabIndicatorFullWidth="false"
-        app:tabIndicator="@drawable/tab_indicator"/>
+        app:tabTextColor="@color/white" />
+
+    <include
+        android:id="@+id/include"
+        layout="@layout/main_tool_bar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -22,53 +22,36 @@ import kotlinx.android.synthetic.main.activity_main.*
 class MainActivity : AppCompatActivity() {
 
     private lateinit var navController: NavController
-//    private var _binding: ActivityMainBinding? = null
+
     private lateinit var binding: ActivityMainBinding
     private  var firebaseAuth = FirebaseAuth.getInstance()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        setSupportActionBar(binding.Mytoolbar)
         val navHostFragment = supportFragmentManager
             .findFragmentById(R.id.nav_host) as NavHostFragment
 
         // Instantiate the navController using the NavHostFragment
         navController = navHostFragment.navController
-//         Make sure actions in the ActionBar get propagated to the NavController
-        val appBarConfiguration = AppBarConfiguration(setOf(
-            R.id.profile,
-            R.id.search,
-            R.id.home,
-            R.id.favourites
-        ))
-        setupActionBarWithNavController(navController, appBarConfiguration)
 
-//
         binding.bottobNavigation.setupWithNavController(navController)
 
-    }
-    override fun onSupportNavigateUp(): Boolean {
-        val navController = Navigation.findNavController(nav_host)
-        return navController.navigateUp() || super.onSupportNavigateUp()
     }
 
     fun goToRegister() {
         val intent = Intent(this, AuthenticationActivity::class.java)
-        if(firebaseAuth.currentUser == null) {
-            startActivity(intent)
-            finish()
-        }
+        startActivity(intent)
     }
 
-    fun setColorBackground() {
-        val color = getColor(R.color.mainBackground)
-        binding.Mytoolbar.setBackgroundColor(color)
+    fun restartAct() {
+        finish()
+        startActivity(Intent(this, MainActivity::class.java))
+        finish()
     }
 
     override fun onStart() {
         super.onStart()
-        goToRegister()
     }
 }
 

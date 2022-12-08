@@ -10,4 +10,8 @@ interface MovieRepository {
     suspend fun insertMovie(movieItemModel: Result)
 
     suspend fun deleteMovie(movieItemModel: Result)
+
+    suspend fun getSizeTable(): Int
+
+    suspend fun deleteMovieTable()
 }

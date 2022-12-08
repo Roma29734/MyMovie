@@ -12,6 +12,7 @@
         <item name="colorSecondaryVariant">@color/teal_700</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
+        <item name="android:windowBackground">@color/mainBackground</item>
         <item name="android:statusBarColor" tools:targetApi="l">@color/mainBackground</item>
         <!-- Customize your theme here. -->
         <item name="android:navigationBarColor">@color/mainBarSecond</item>
@@ -28,6 +29,34 @@
     <style name="SearchViewStyle" parent="Widget.AppCompat.SearchView">
         <item name="android:textColor">@color/white</item>
         <item name="android:editTextColor">@color/white</item>
-        <item name="android:textColorHint">@color/mainGrey</item>
+        <item name="android:textColorHint">@android:color/white</item>
+        <item name="android:queryBackground">@android:color/transparent</item>
+    </style>
+
+    <style name="textMainToolBar" parent="TextAppearance.AppCompat" >
+        <item name="android:textColor">@color/white</item>
+        <item name="android:fontFamily">@font/montserrat_semi_bold</item>
+        <item name="android:textSize">23sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="textMainTitle" parent="android:TextAppearance">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:fontFamily">@font/montserrat_bold</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <style name="materialButtonMain" parent="Widget.MaterialComponents.Button">
+        <item name="android:textSize">12sp</item>
+        <item name="android:backgroundTint">@color/MaimRed</item>
+        <item name="android:fontFamily">@font/montserrat_semi_bold</item>
+    </style>
+
+
+    <style name="cardViewProfileMain" parent="CardView">
+        <item name="android:backgroundTint">@color/MaimRed</item>
+        <item name="android:tint">@android:color/transparent</item>
+        <item name="cardElevation">0dp</item>
+        <item name="cardCornerRadius">8dp</item>
     </style>
 </resources>

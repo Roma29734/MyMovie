@@ -10,32 +10,31 @@ import android.view.ViewGroup
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.FragmentActivity
 import com.example.mymovie.R
+import com.example.mymovie.base.BaseFragment
+import com.example.mymovie.databinding.FragmentHomeBinding
 import com.example.mymovie.ui.MainActivity
 import com.google.android.material.tabs.TabLayoutMediator
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_home.view.*
 
-class HomeFragment : Fragment() {
-    private var contex: Context?= null
+class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::inflate) {
+    private var contex: Context? = null
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
         contex = context
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        val view =  inflater.inflate(R.layout.fragment_home, container, false)
 
-        view.viewPager.adapter = HomeViewPagerAdapter(contex as FragmentActivity)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
 
-        TabLayoutMediator(view.tableLayout, view.viewPager) {
-                tab, pos ->
-            when(pos) {
+        binding.include.textView.text = "Movie"
+        binding.viewPager.adapter = HomeViewPagerAdapter(contex as FragmentActivity)
+
+        TabLayoutMediator(view.tableLayout, view.viewPager) { tab, pos ->
+            when (pos) {
                 0 -> {
                     tab.text = "Популярные фильмы"
                 }
@@ -47,8 +46,6 @@ class HomeFragment : Fragment() {
                 }
             }
         }.attach()
-
-        return view
     }
 }
 

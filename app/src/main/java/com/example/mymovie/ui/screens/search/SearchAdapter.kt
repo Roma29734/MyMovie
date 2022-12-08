@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
+import coil.load
 import com.example.mymovie.R
 import com.example.mymovie.data.model.Result
 import com.example.mymovie.databinding.CardVerticalRowBinding
@@ -24,10 +24,7 @@ class SearchAdapter: RecyclerView.Adapter<SearchAdapter.MyViewHolder>() {
 
         holder.binding.textCardTitle.text = positionMovieList.title
         holder.binding.textCardDate.text = positionMovieList.release_date
-        Glide.with(holder.itemView.context)
-            .load("$IMAGE_DOP${positionMovieList.poster_path}")
-            .placeholder(R.drawable.ic_launcher_background)
-            .into(holder.binding.imageMovie)
+        holder.binding.imageMovie.load("$IMAGE_DOP${positionMovieList.poster_path}")
 
         holder.binding.rowCard.setOnClickListener {
             val action = SearchFragmentDirections.actionSearchToDetailFragment(positionMovieList)

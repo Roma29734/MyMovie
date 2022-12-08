@@ -2,52 +2,56 @@ package com.example.mymovie.ui.screens.profile
 
 import android.app.AlertDialog
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
-import com.example.mymovie.R
-import com.example.mymovie.databinding.FragmentPopularBinding
+import com.example.mymovie.base.BaseFragment
 import com.example.mymovie.databinding.FragmentProfileBinding
 import com.example.mymovie.ui.MainActivity
-import com.example.mymovie.ui.auntification.AuthenticationActivity
-import com.google.firebase.auth.FirebaseAuth
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
-import java.lang.System.exit
+
 @AndroidEntryPoint
-class ProfileFragment : Fragment() {
-    private lateinit var binding: FragmentProfileBinding
-    private val firebase = FirebaseAuth.getInstance().currentUser
+class ProfileFragment : BaseFragment<FragmentProfileBinding>(FragmentProfileBinding::inflate) {
 
-    private val viewModel by viewModels<ProfileViewModel>()
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        binding = FragmentProfileBinding.inflate(inflater, container, false)
-
-
-        return binding.root
-    }
+    private val viewModel: ProfileViewModel by viewModels()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setUI()
+    }
 
-        firebase?.let {
-            val name = firebase.displayName
-            val email = firebase.email
-            binding.textView4.text = email
+    fun setUI() {
+        lifecycleScope.launch {
+            if(viewModel.user == null) {
+                binding.registrNon.root.visibility = View.VISIBLE
+                registrNon()
+            } else {
+                binding.registrYes.root.visibility = View.VISIBLE
+                registrYes()
+            }
         }
+    }
 
-        binding.matButExit.setOnClickListener {
-            dialogExit()
+    fun registrNon() {
+        binding.registrNon.materialButton.setOnClickListener {
+            (requireActivity() as MainActivity).goToRegister()
+        }
+    }
+
+    fun registrYes() {
+        viewModel.getFavMovie()
+        lifecycleScope.launch {
+            binding.registrYes.crdVTextEmail.text = viewModel.user!!.email
+            viewModel.favMovie.observe(viewLifecycleOwner) {
+                binding.registrYes.crdVTextFav.text = "$it фильма"
+            }
+            binding.registrYes.materialButton2.setOnClickListener {
+                lifecycleScope.launch {
+                    dialogExit()
+                }
+            }
         }
     }
 
@@ -56,10 +60,11 @@ class ProfileFragment : Fragment() {
         builder.setPositiveButton("Да") { _, _ ->
             lifecycleScope.launch {
                 viewModel.exit()
+                viewModel.deleteBase()
             }
             Toast.makeText(context, "Вы успешно вышли", Toast.LENGTH_SHORT).show()
-            val inten = (requireActivity() as MainActivity).goToRegister()
-            inten
+            (requireActivity() as MainActivity).restartAct()
+
         }
         builder.setNegativeButton("Нет") { _, _ -> }
         builder.setTitle("Выйти?")

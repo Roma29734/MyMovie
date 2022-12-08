@@ -16,4 +16,10 @@ interface MovieDao {
 
     @Query("SELECT * FROM movie_table ORDER BY id ASC")
     fun getAllMovie(): LiveData<List<Result>>
+
+    @Query("SELECT COUNT(*) FROM movie_table")
+    suspend fun getSizeTable(): Int
+
+    @Query("DELETE FROM movie_table")
+    suspend fun deleteMovieTable()
 }

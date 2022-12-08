@@ -1,59 +1,61 @@
 package com.example.mymovie.ui.screens.viewPager.popular
 
-import android.app.ProgressDialog.show
-import android.graphics.Color.BLACK
-import android.graphics.Color.WHITE
+
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.example.mymovie.R
+import com.example.mymovie.base.BaseFragment
+import com.example.mymovie.data.model.Result
 import com.example.mymovie.databinding.FragmentPopularBinding
-import com.example.mymovie.utils.InternetConnection
-import com.google.android.material.snackbar.Snackbar
+import com.example.mymovie.ui.adapter.MainAdapter
+import com.example.mymovie.ui.screens.home.HomeFragmentDirections
+import com.example.mymovie.utils.LoadState
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
-class PopularFragment : Fragment() {
+class PopularFragment : BaseFragment<FragmentPopularBinding>(FragmentPopularBinding::inflate) {
 
-    private lateinit var binding: FragmentPopularBinding
-    private lateinit var adapter: PopularAdapter
-    private val viewModel by viewModels<PopularViewModel>()
-    private lateinit var Network: InternetConnection
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        binding = FragmentPopularBinding.inflate(inflater, container, false)
-
-        adapter = PopularAdapter()
-        binding.mainRecycler.adapter = adapter
-        binding.mainRecycler.layoutManager = GridLayoutManager(context, 3)
-        Network = context?.let { InternetConnection(it) }!!
-        return binding.root
-    }
+    private val viewModel: PopularViewModel by viewModels()
+    private val adapter = MainAdapter()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        Network.observe(viewLifecycleOwner) {connect ->
-            if(connect) {
-                binding.progressBar.visibility = View.INVISIBLE
-                viewModel.getPopularMovieList()
-                viewModel.movieList.observe(viewLifecycleOwner) { list ->
-                    list?.body()?.let { adapter.setData(it.results) }
+
+        binding.mainRecycler.adapter = adapter
+        binding.mainRecycler.layoutManager = GridLayoutManager(context, 3)
+
+        adapter.callBackDel = { result ->
+            val action = HomeFragmentDirections.actionRootFragmentToDetailFragment(result)
+            view.let { Navigation.findNavController(it).navigate(action) }
+        }
+
+        viewModel.getPopularMovieList()
+        lifecycleScope.launch {
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED){
+                viewModel.movieState.collectLatest { uiState ->
+                    when(uiState.loadState) {
+
+                        LoadState.LOADING -> {
+                            binding.progressBar.visibility = View.VISIBLE
+                        }
+
+                        LoadState.ERROR -> {
+                            binding.progressBar.visibility = View.INVISIBLE
+                        }
+
+                        LoadState.SUCCESS -> {
+                            binding.progressBar.visibility = View.INVISIBLE
+                            uiState.successState?.let { adapter.setData(it.results) }
+                        }
+                    }
                 }
-            } else {
-                binding.progressBar.visibility = View.VISIBLE
-                Snackbar.make(view, R.string.no_internet, Snackbar.LENGTH_SHORT)
-                    .setTextColor(BLACK)
-                    .setBackgroundTint(WHITE)
-                    .show()
             }
         }
     }

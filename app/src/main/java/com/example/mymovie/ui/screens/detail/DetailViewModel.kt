@@ -5,6 +5,8 @@ import androidx.lifecycle.viewModelScope
 import com.example.mymovie.data.local.dao.MovieDao
 import com.example.mymovie.data.local.repository.MovieRepository
 import com.example.mymovie.data.model.Result
+import com.example.mymovie.data.remote.firebase.AuthenticationRepository
+import com.example.mymovie.domain.MovieUserCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -12,18 +14,21 @@ import javax.inject.Inject
 
 @HiltViewModel
 class DetailViewModel @Inject constructor(
-    private val movieRepository: MovieRepository,
+    private val movieUserCase: MovieUserCase,
+    private val authenticationRepository: AuthenticationRepository,
 ): ViewModel() {
 
-    fun addFavourites(moveiModel: Result) {
+    val user = authenticationRepository.currentUser
+
+    fun addFavourites(movieModel: Result) {
         viewModelScope.launch(Dispatchers.IO) {
-            movieRepository.insertMovie(moveiModel)
+            movieUserCase.insertLocalMovieCase(movieModel)
         }
     }
 
-    fun deleteFavourites(moveiModel: Result) {
+    fun deleteFavourites(movieModel: Result) {
         viewModelScope.launch(Dispatchers.IO) {
-            movieRepository.deleteMovie(moveiModel)
+            movieUserCase.deleteLocalMovieCase(movieModel)
         }
     }
 }

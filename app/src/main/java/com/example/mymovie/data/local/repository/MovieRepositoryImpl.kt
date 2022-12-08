@@ -19,4 +19,12 @@ class MovieRepositoryImpl @Inject constructor(
     override suspend fun deleteMovie(movieItemModel: Result) {
         movieDao.deleteMovie(movieItemModel)
     }
+
+    override suspend fun getSizeTable(): Int {
+        return movieDao.getSizeTable()
+    }
+
+    override suspend fun deleteMovieTable() {
+        movieDao.deleteMovieTable()
+    }
 }

@@ -1,19 +1,20 @@
-package com.example.mymovie.ui.screens.viewPager.topReted
+package com.example.mymovie.ui.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
-import com.example.mymovie.R
-import com.example.mymovie.data.model.Result
+import coil.load
 import com.example.mymovie.databinding.CardVerticalRowBinding
-import com.example.mymovie.ui.screens.home.HomeFragmentDirections
 import com.example.mymovie.utils.IMAGE_DOP
+import com.example.mymovie.data.model.Result
+import com.example.mymovie.ui.screens.home.HomeFragmentDirections
 
-class TopRatedAdapter: RecyclerView.Adapter<TopRatedAdapter.MyViewHolder>() {
+class MainAdapter() : RecyclerView.Adapter<MainAdapter.MyViewHolder>() {
 
-    private var topRatedList = emptyList<Result>()
+    private var movieList = emptyList<Result>()
+
+    var callBackDel: ((city: Result) -> Unit)? = null
 
     inner class MyViewHolder(val binding: CardVerticalRowBinding): RecyclerView.ViewHolder(binding.root)
 
@@ -22,27 +23,26 @@ class TopRatedAdapter: RecyclerView.Adapter<TopRatedAdapter.MyViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        val positionMovieList = topRatedList[position]
+        val positionMovieList = movieList[position]
 
         holder.binding.textCardTitle.text = positionMovieList.title
         holder.binding.textCardDate.text = positionMovieList.release_date
-        Glide.with(holder.itemView.context)
-            .load("$IMAGE_DOP${positionMovieList.poster_path}")
-            .placeholder(R.drawable.ic_launcher_background)
-            .into(holder.binding.imageMovie)
+
+        holder.binding.imageMovie.load("$IMAGE_DOP${positionMovieList.poster_path}")
 
         holder.binding.rowCard.setOnClickListener {
-            val action = HomeFragmentDirections.actionRootFragmentToDetailFragment(positionMovieList)
-            holder.itemView.findNavController().navigate(action)
+//            val action = HomeFragmentDirections.actionRootFragmentToDetailFragment(positionMovieList)
+//            holder.itemView.findNavController().navigate(action)
+            callBackDel?.invoke(positionMovieList)
         }
     }
 
     override fun getItemCount(): Int {
-        return topRatedList.size
+        return movieList.size
     }
 
-    fun setTopRatedList(list: List<Result>) {
-        topRatedList = list
+    fun setData(list: List<Result>) {
+        movieList = list
         notifyDataSetChanged()
     }
 }

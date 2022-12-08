@@ -20,13 +20,12 @@ import kotlinx.android.synthetic.main.activity_main.*
 class AuthenticationActivity : AppCompatActivity() {
     private lateinit var binding: ActivityAutificationBinding
     private lateinit var navController: NavController
-    private  var firebaseAuth = FirebaseAuth.getInstance()
+    private var firebaseAuth = FirebaseAuth.getInstance()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityAutificationBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setSupportActionBar(binding.MyTolsBar)
-
 
         val navHostFragment = supportFragmentManager
             .findFragmentById(R.id.reg_host) as NavHostFragment
@@ -43,14 +42,15 @@ class AuthenticationActivity : AppCompatActivity() {
     override fun onStart() {
         super.onStart()
         val intent = Intent(this, MainActivity::class.java)
-        if(firebaseAuth.currentUser != null) {
+        if (firebaseAuth.currentUser != null) {
             startActivity(intent)
+            finish()
         }
     }
 
     fun goToMain() {
         val intentuser = Intent(this, MainActivity::class.java)
-        startActivity(intentuser)
         finish()
+        startActivity(intentuser)
     }
 }
