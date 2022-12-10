@@ -29,6 +29,18 @@ class domainBaseModule {
 
     @Singleton
     @Provides
+    fun provideGetNowPlayingCase(repository: RemoteRepository) = GetNowPlayingCase(repository)
+
+    @Singleton
+    @Provides
+    fun provideGetRecommendationsCase(repository: RemoteRepository) = GetRecommendationsCase(repository)
+
+    @Singleton
+    @Provides
+    fun provideGetGetSimilarMovieCase(repository: RemoteRepository) = GetSimilarMovieCase(repository)
+
+    @Singleton
+    @Provides
     fun provideSearchMovieCase(repository: RemoteRepository) = SearchMovieCase(repository)
 
     @Singleton
@@ -56,6 +68,9 @@ class domainBaseModule {
         getPopularMovieCase: GetPopularMovieCase,
         getTopRatedMovieCase: GetTopRatedMovieCase,
         getUpcomingMovieCase: GetUpcomingMovieCase,
+        getNowPlayingCase: GetNowPlayingCase,
+        getRecommendationsCase: GetRecommendationsCase,
+        getSimilarMovieCase: GetSimilarMovieCase,
         searchMovieCase: SearchMovieCase,
         readAllLocalMovieCase: ReadAllLocalMovieCase,
         insertLocalMovieCase: InsertLocalMovieCase,
@@ -66,6 +81,9 @@ class domainBaseModule {
         getPopularMovieCase,
         getTopRatedMovieCase,
         getUpcomingMovieCase,
+        getNowPlayingCase,
+        getRecommendationsCase,
+        getSimilarMovieCase,
         searchMovieCase,
         readAllLocalMovieCase,
         insertLocalMovieCase,

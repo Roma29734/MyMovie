@@ -6,11 +6,6 @@
     app:startDestination="@id/home">
 
     <fragment
-        android:id="@+id/popularFragment"
-        android:name="com.example.mymovie.ui.screens.viewPager.popular.PopularFragment"
-        android:label="fragment_main"
-        tools:layout="@layout/fragment_popular" />
-    <fragment
         android:id="@+id/favourites"
         android:name="com.example.mymovie.ui.screens.favourites.FavouritesFragment"
         android:label="Избранное"
@@ -27,6 +22,9 @@
         <argument
             android:name="moviewModel"
             app:argType="com.example.mymovie.data.model.Result" />
+        <action
+            android:id="@+id/action_detailFragment_self"
+            app:destination="@id/detailFragment" />
     </fragment>
     <fragment
         android:id="@+id/home"
@@ -51,4 +49,5 @@
             android:id="@+id/action_search_to_detailFragment"
             app:destination="@id/detailFragment" />
     </fragment>
+
 </navigation>

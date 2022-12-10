@@ -24,7 +24,7 @@ class SearchViewModel @Inject constructor(
     private val movieUserCase: MovieUserCase,
 ) : ViewModel() {
 
-    private var _movieSearchResult = MutableStateFlow(HomeState())
+    private var _movieSearchResult = MutableStateFlow(SearchState())
     val movieSearchResult get() = _movieSearchResult
 
     fun searchMovie(query: String) {

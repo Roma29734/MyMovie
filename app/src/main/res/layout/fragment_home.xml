@@ -7,30 +7,26 @@
     android:background="@color/mainBackgroundSecond"
     tools:context=".ui.screens.home.HomeFragment">
 
-    <androidx.viewpager2.widget.ViewPager2
-        android:id="@+id/viewPager"
-        android:layout_width="match_parent"
-        android:background="@color/mainBackground"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/mainRecycler"
+        android:layout_width="0dp"
         android:layout_height="0dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.44"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tableLayout"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/include" />
 
-    <com.google.android.material.tabs.TabLayout
-        android:id="@+id/tableLayout"
-        android:layout_width="match_parent"
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/tab_layout_corner"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/include"
-        app:tabIndicator="@drawable/tab_indicator"
-        app:tabIndicatorColor="@color/white"
-        app:tabIndicatorFullWidth="false"
-        app:tabTextColor="@color/white" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:indeterminateOnly="true"
+        android:visibility="invisible"/>
 
     <include
         android:id="@+id/include"

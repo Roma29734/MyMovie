@@ -36,7 +36,7 @@
                 android:layout_marginStart="15dp"
                 android:layout_marginEnd="10dp"
                 android:fontFamily="@font/montserrat_bold"
-                android:text="Дом Дракона"
+                tools:text="Дом Дракона"
                 android:textColor="@color/white"
                 android:textSize="25dp"
                 />
@@ -49,7 +49,7 @@
                 android:layout_marginStart="15dp"
                 android:layout_marginEnd="5dp"
                 android:fontFamily="@font/montserrat_medium"
-                android:text="(2020)"
+                tools:text="(2020)"
                 android:textColor="@color/mainGrey" />
 
             <TextView
@@ -61,9 +61,43 @@
                 android:layout_marginEnd="12dp"
                 android:layout_marginBottom="10dp"
                 android:fontFamily="@font/montserrat_medium"
-                android:text="Члены дома Таргариенов оставляют обречённую Валирию и отправляются на запад, где обнаруживают огромную территорию, населённую враждующими королевствами."
+                tools:text="Члены дома Таргариенов оставляют обречённую Валирию и отправляются на запад, где обнаруживают огромную территорию, населённую враждующими королевствами."
                 android:textColor="@color/mainGrey"
                 android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/similarMovie"
+                android:layout_marginTop="16dp"
+                android:layout_marginStart="12dp"
+                style="@style/textTitleMovieCat"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/similarRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                android:orientation="horizontal"
+                tools:listitem="@layout/movie_item_row"/>
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/recomindation"
+                android:layout_marginTop="16dp"
+                android:layout_marginStart="12dp"
+                style="@style/textTitleMovieCat"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                android:orientation="horizontal"
+                tools:listitem="@layout/movie_item_row"/>
 
         </LinearLayout>
     </ScrollView>
@@ -73,6 +107,18 @@
         layout="@layout/detail_tool_bar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:indeterminateOnly="true"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
