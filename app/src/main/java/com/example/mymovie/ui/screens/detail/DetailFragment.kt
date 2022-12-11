@@ -1,6 +1,7 @@
 package com.example.mymovie.ui.screens.detail
 
 import android.os.Bundle
+import android.util.Log
 import android.view.*
 import android.widget.Toast
 import androidx.core.view.get
@@ -66,29 +67,15 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>(FragmentDetailBinding
                 viewModel.movieResult.collectLatest { uiState ->
                     when(uiState.loadState) {
                         LoadState.LOADING -> {
-                            binding.progressBar.visibility = View.VISIBLE
+//                            binding.progressBar.visibility = View.VISIBLE
                         }
                         LoadState.ERROR -> {
-                            binding.progressBar.visibility = View.INVISIBLE
+//                            binding.progressBar.visibility = View.INVISIBLE
                             Toast.makeText(context, "произашла ошибка", Toast.LENGTH_SHORT).show()
                         }
                         LoadState.SUCCESS -> {
-                            binding.progressBar.visibility = View.INVISIBLE
+//                            binding.progressBar.visibility = View.INVISIBLE
                             uiState.successRec?.let { recommendationsAdapter.setMovie(it.results) }
-                        }
-                    }
-                }
-                viewModel.movieResult.collectLatest { uiState->
-                    when(uiState.loadState) {
-                        LoadState.LOADING -> {
-
-                        }
-                        LoadState.ERROR -> {
-                            binding.progressBar.visibility = View.INVISIBLE
-                            Toast.makeText(context, "произашла ошибка", Toast.LENGTH_SHORT).show()
-                        }
-                        LoadState.SUCCESS -> {
-                            binding.progressBar.visibility = View.INVISIBLE
                             uiState.successSimilar?.let { similarAdapter.setMovie(it.results) }
                         }
                     }
@@ -96,8 +83,8 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>(FragmentDetailBinding
             }
         }
 
-        if (valueBool == true) binding.toolBar.imageButtonFav.setImageResource(R.drawable.ic_star_yes_state)
-        else binding.toolBar.imageButtonFav.setImageResource(R.drawable.ic_star_non_state)
+        if (valueBool == true) binding.toolBar.imageButtonFav.setImageResource(R.drawable.ic_fav_yes)
+        else binding.toolBar.imageButtonFav.setImageResource(R.drawable.ic_fav_non)
 
         binding.toolBar.imageButtonBack.setOnClickListener {
             Navigation.findNavController(view).popBackStack()
@@ -115,12 +102,12 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>(FragmentDetailBinding
     private fun clickFavButton() {
         valueBool = if (valueBool == true) {
             viewModel.deleteFavourites(args.moviewModel)
-            binding.toolBar.imageButtonFav.setImageResource(R.drawable.ic_star_non_state)
+            binding.toolBar.imageButtonFav.setImageResource(R.drawable.ic_fav_non)
             SaveShared.setFavorite(context, args.moviewModel.id.toString(), false)
             SaveShared.getFavorite(context, args.moviewModel.id.toString())
         } else {
             viewModel.addFavourites(args.moviewModel)
-            binding.toolBar.imageButtonFav.setImageResource(R.drawable.ic_star_yes_state)
+            binding.toolBar.imageButtonFav.setImageResource(R.drawable.ic_fav_yes)
             SaveShared.setFavorite(context, args.moviewModel.id.toString(), true)
             SaveShared.getFavorite(context, args.moviewModel.id.toString())
         }

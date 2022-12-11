@@ -8,23 +8,23 @@
 
     <ImageButton
         android:id="@+id/imageButtonBack"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
         android:layout_marginStart="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_back_arrow"
-        android:background="@android:color/transparent"/>
+        app:srcCompat="@drawable/ic_arrow_back_non_palka"
+        android:background="@drawable/roud_backround"/>
 
     <ImageButton
         android:id="@+id/imageButtonFav"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
         android:layout_marginEnd="16dp"
-        android:background="@android:color/transparent"
+        android:background="@drawable/roud_backround"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@drawable/ic_back_arrow" />
+        tools:srcCompat="@drawable/ic_fav_non" />
 </androidx.constraintlayout.widget.ConstraintLayout>

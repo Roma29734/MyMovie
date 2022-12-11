@@ -62,11 +62,9 @@ class DetailViewModel @Inject constructor(
                     is Resource.Loading -> {
                         _movieResult.update { it.copy(loadState = LoadState.LOADING) }
                     }
-
                     is Resource.Error -> {
                         _movieResult.update { it.copy(loadState = LoadState.ERROR) }
                     }
-
                     is Resource.Success -> {
                         _movieResult.update { it.copy(loadState = LoadState.SUCCESS, successSimilar = result.data) }
                     }

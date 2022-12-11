@@ -18,4 +18,5 @@
     <string name="no_internet">Нет интернерта</string>
     <string name="recomindation">Рекоминдованы к просмотру</string>
     <string name="similarMovie">Похожие фильмы</string>
+    <string name="sing_or_registr">Войти/Зарегестрироваться</string>
 </resources>
