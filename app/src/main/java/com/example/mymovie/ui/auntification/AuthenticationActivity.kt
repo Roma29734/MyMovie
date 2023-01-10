@@ -18,12 +18,15 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 @AndroidEntryPoint
 class AuthenticationActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityAutificationBinding
+
+    private var _binding: ActivityAutificationBinding? = null
+    private val binding get() = _binding!!
+
     private lateinit var navController: NavController
     private var firebaseAuth = FirebaseAuth.getInstance()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityAutificationBinding.inflate(layoutInflater)
+        _binding = ActivityAutificationBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setSupportActionBar(binding.MyTolsBar)
 

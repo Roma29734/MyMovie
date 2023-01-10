@@ -8,25 +8,17 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.view.isInvisible
 import androidx.fragment.app.viewModels
+import com.example.mymovie.base.BaseFragment
 import com.example.mymovie.databinding.FragmentRegistrationBinding
 import com.example.mymovie.ui.auntification.AuthenticationActivity
 import com.example.mymovie.data.remote.firebase.Resours
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class RegistrationFragment : Fragment() {
+class RegistrationFragment : BaseFragment<FragmentRegistrationBinding>(FragmentRegistrationBinding::inflate) {
 
-    lateinit var binding: FragmentRegistrationBinding
     private val viewModel by viewModels<RegistrationViewModel>()
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        // Inflate the layout for this fragment
-        binding = FragmentRegistrationBinding.inflate(inflater, container, false)
 
-        return binding.root
-    }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 

@@ -10,25 +10,17 @@ import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.navigation.Navigation
 import com.example.mymovie.R
+import com.example.mymovie.base.BaseFragment
 import com.example.mymovie.databinding.FragmentLoginBinding
 import com.example.mymovie.ui.auntification.AuthenticationActivity
 import com.example.mymovie.data.remote.firebase.Resours
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class LoginFragment : Fragment() {
+class LoginFragment : BaseFragment<FragmentLoginBinding>(FragmentLoginBinding::inflate) {
+
     private val viewModel by viewModels<LoginViewModel>()
 
-    lateinit var binding: FragmentLoginBinding
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        // Inflate the layout for this fragment
-        binding = FragmentLoginBinding.inflate(inflater, container, false)
-        return binding.root
-    }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.matButtonGo.setOnClickListener {

@@ -8,15 +8,15 @@ import retrofit2.http.Query
 
 interface ApiService {
 
-//    https://api.themoviedb.org/3/movie/popular?api_key=45ffb7fda0e37319afe521f67ba1b0f8&language=ru-RUS&page=1
-//    https://api.themoviedb.org/3/movie/top_rated?api_key=45ffb7fda0e37319afe521f67ba1b0f8&language=ru-Rus&page=1
-//    https://api.themoviedb.org/3/movie/upcoming?api_key=45ffb7fda0e37319afe521f67ba1b0f8&language=ru-Rus&page=1
-//    https://api.themoviedb.org/3/search/movie?api_key=45ffb7fda0e37319afe521f67ba1b0f8&language=ru-Rus&query=a&page=1&include_adult=false
+//    https://api.themoviedb.org/3/movie/popular?api_key=apiKey&language=ru-RUS&page=1
+//    https://api.themoviedb.org/3/movie/top_rated?api_key=apiKey&language=ru-Rus&page=1
+//    https://api.themoviedb.org/3/movie/upcoming?api_key=apiKey&language=ru-Rus&page=1
+//    https://api.themoviedb.org/3/search/movie?api_key=apiKey&language=ru-Rus&query=a&page=1&include_adult=false
 
-//    @GET("3/movie/popular?api_key=45ffb7fda0e37319afe521f67ba1b0f8&language=ru-RUS&page=1")
-//    https://api.themoviedb.org/3/movie/now_playing?api_key=45ffb7fda0e37319afe521f67ba1b0f8&language=en-US&page=6&region=RU
-//    https://api.themoviedb.org/3/movie/855440/recommendations?api_key=45ffb7fda0e37319afe521f67ba1b0f8&language=ru-RUS&page=1
-//    https://api.themoviedb.org/3/movie/829799/similar?api_key=45ffb7fda0e37319afe521f67ba1b0f8&language=ru-RUS&page=1
+//    @GET("3/movie/popular?api_key=apiKey&language=ru-RUS&page=1")
+//    https://api.themoviedb.org/3/movie/now_playing?api_key=apiKey&language=en-US&page=6&region=RU
+//    https://api.themoviedb.org/3/movie/855440/recommendations?api_key=apiKey&language=ru-RUS&page=1
+//    https://api.themoviedb.org/3/movie/829799/similar?api_key=apiKey&language=ru-RUS&page=1
 
 
     @GET("3/movie/popular?")

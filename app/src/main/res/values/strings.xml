@@ -19,4 +19,5 @@
     <string name="recomindation">Рекоминдованы к просмотру</string>
     <string name="similarMovie">Похожие фильмы</string>
     <string name="sing_or_registr">Войти/Зарегестрироваться</string>
+    <string name="password">Password</string>
 </resources>

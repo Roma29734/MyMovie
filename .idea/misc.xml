@@ -27,11 +27,11 @@
         <entry key="..\:/tehnicals/MyMovie/app/src/main/res/layout/fragment_detail.xml" value="0.25" />
         <entry key="..\:/tehnicals/MyMovie/app/src/main/res/layout/fragment_favourites.xml" value="0.22" />
         <entry key="..\:/tehnicals/MyMovie/app/src/main/res/layout/fragment_home.xml" value="0.25" />
-        <entry key="..\:/tehnicals/MyMovie/app/src/main/res/layout/fragment_login.xml" value="0.1" />
+        <entry key="..\:/tehnicals/MyMovie/app/src/main/res/layout/fragment_login.xml" value="0.25" />
         <entry key="..\:/tehnicals/MyMovie/app/src/main/res/layout/fragment_main.xml" value="0.2" />
         <entry key="..\:/tehnicals/MyMovie/app/src/main/res/layout/fragment_popular.xml" value="0.1" />
         <entry key="..\:/tehnicals/MyMovie/app/src/main/res/layout/fragment_profile.xml" value="0.33" />
-        <entry key="..\:/tehnicals/MyMovie/app/src/main/res/layout/fragment_registration.xml" value="0.264" />
+        <entry key="..\:/tehnicals/MyMovie/app/src/main/res/layout/fragment_registration.xml" value="0.22" />
         <entry key="..\:/tehnicals/MyMovie/app/src/main/res/layout/fragment_root.xml" value="0.25" />
         <entry key="..\:/tehnicals/MyMovie/app/src/main/res/layout/fragment_search.xml" value="0.33" />
         <entry key="..\:/tehnicals/MyMovie/app/src/main/res/layout/fragment_top_rated.xml" value="0.25" />
@@ -44,7 +44,7 @@
         <entry key="..\:/tehnicals/MyMovie/app/src/main/res/layout/scrol_detail.xml" value="0.24895833333333334" />
         <entry key="..\:/tehnicals/MyMovie/app/src/main/res/layout/search_tool_bar.xml" value="0.25" />
         <entry key="..\:/tehnicals/MyMovie/app/src/main/res/layout/yes_registr_profile.xml" value="0.33" />
-        <entry key="..\:/tehnicals/MyMovie/app/src/main/res/menu/botom_bar_item.xml" value="0.2" />
+        <entry key="..\:/tehnicals/MyMovie/app/src/main/res/menu/botom_bar_item.xml" value="0.5" />
         <entry key="..\:/tehnicals/MyMovie/app/src/main/res/menu/detail_ac_bar_item.xml" value="0.25" />
         <entry key="..\:/tehnicals/MyMovie/app/src/main/res/menu/search_item.xml" value="0.24895833333333334" />
       </map>

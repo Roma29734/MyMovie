@@ -1,6 +1,7 @@
 package com.example.mymovie.ui.screens.profile
 
 import android.app.Application
+import android.content.Context
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -8,6 +9,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.mymovie.data.remote.firebase.AuthenticationRepository
 import com.example.mymovie.data.remote.firebase.AuthenticationRepositoryImpl
 import com.example.mymovie.domain.MovieUserCase
+import com.example.mymovie.utils.SaveShared
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -33,7 +35,8 @@ class ProfileViewModel @Inject constructor(
         }
     }
 
-    suspend fun exit() {
+    suspend fun exit(context: Context) {
         repository.logOut()
+        SaveShared.deleteAll(context)
     }
 }

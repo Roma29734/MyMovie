@@ -59,7 +59,7 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding>(FragmentProfileBind
         val builder = AlertDialog.Builder(context)
         builder.setPositiveButton("Да") { _, _ ->
             lifecycleScope.launch {
-                viewModel.exit()
+                context?.let { viewModel.exit(it) }
                 viewModel.deleteBase()
             }
             Toast.makeText(context, "Вы успешно вышли", Toast.LENGTH_SHORT).show()

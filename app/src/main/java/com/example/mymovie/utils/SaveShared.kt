@@ -14,5 +14,10 @@ class SaveShared {
             val getFavoriteShared = PreferenceManager.getDefaultSharedPreferences(context)
             return getFavoriteShared.getBoolean(key, false)
         }
+
+        fun deleteAll(context: Context?) {
+            val getFavoriteShared = PreferenceManager.getDefaultSharedPreferences(context)
+            getFavoriteShared.edit().clear().apply()
+        }
     }
 }
