@@ -3,12 +3,10 @@ package com.example.mymovie.ui.adapter
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.example.mymovie.data.model.Result
 import com.example.mymovie.databinding.MovieItemRowBinding
-import com.example.mymovie.ui.screens.home.HomeFragmentDirections
 import com.example.mymovie.utils.IMAGE_DOP
 
 class MovieAdapter(
@@ -34,8 +32,7 @@ class MovieAdapter(
         holder.binding.imageMove.load("$IMAGE_DOP${moviePositions.poster_path}")
 
         holder.binding.item.setOnClickListener {
-//            val action = HomeFragmentDirections.actionRootFragmentToDetailFragment(moviePositions)
-//            holder.itemView.findNavController().navigate(action)
+
             callBackDel?.let { it1 -> it1(moviePositions) }
         }
     }

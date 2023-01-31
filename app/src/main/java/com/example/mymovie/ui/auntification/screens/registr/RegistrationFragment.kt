@@ -38,6 +38,7 @@ class RegistrationFragment : BaseFragment<FragmentRegistrationBinding>(FragmentR
                         binding.progressBar.isInvisible
                         (requireActivity() as AuthenticationActivity).goToMain()
                     }
+                    else -> {}
                 }
             }
         }

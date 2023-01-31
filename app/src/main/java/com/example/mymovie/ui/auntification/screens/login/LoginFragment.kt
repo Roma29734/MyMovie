@@ -39,6 +39,7 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(FragmentLoginBinding::i
                         binding.progressBar.visibility = View.INVISIBLE
                         (requireActivity() as AuthenticationActivity).goToMain()
                     }
+                    else -> {}
                 }
             }
         }
