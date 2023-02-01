@@ -7,37 +7,64 @@ import retrofit2.Response
 import retrofit2.http.Query
 
 class RemoteRepository {
-    suspend fun getPopularMovie(): movieModel {
-        return RetrofitInstance.api.getPopularMovie(key = API_KEY, language = "ru-RUS", page = 1)
+    suspend fun getPopularMovie(page: Int): movieModel {
+        return RetrofitInstance.api.getPopularMovie(
+            key = API_KEY,
+            language = "ru-RUS",
+            page = page
+        )
     }
 
-    suspend fun getTopRatedMovie(): movieModel {
-        return RetrofitInstance.api.getTopRatedMovie(key = API_KEY, language = "ru-RUS", page = 1)
+    suspend fun getTopRatedMovie(page: Int): movieModel {
+        return RetrofitInstance.api.getTopRatedMovie(
+            key = API_KEY,
+            language = "ru-RUS",
+            page = page
+        )
     }
 
-    suspend fun getUpcomingMovie(): movieModel {
-        return RetrofitInstance.api.getUpcomingMovie(key = API_KEY, language = "ru-RUS", page = 1)
+    suspend fun getUpcomingMovie(page: Int): movieModel {
+        return RetrofitInstance.api.getUpcomingMovie(
+            key = API_KEY,
+            language = "ru-RUS",
+            page = page
+        )
     }
 
-    suspend fun getNowPlaying(): movieModel {
-        return RetrofitInstance.api.getNowPlaying(key = API_KEY, language = "ru-RUS", page = 1, region = "RU")
+    suspend fun getNowPlaying(page: Int): movieModel {
+        return RetrofitInstance.api.getNowPlaying(
+            key = API_KEY,
+            language = "ru-RUS",
+            page = page,
+            region = "RU"
+        )
     }
 
-    suspend fun searchMovie(query: String): movieModel {
+    suspend fun searchMovie(query: String, page: Int): movieModel {
         return RetrofitInstance.api.searchMovie(
             key = API_KEY,
             language = "ru-RUS",
             query = query,
-            page = 1,
+            page = page,
             adalt = false
         )
     }
 
-    suspend fun getRecommendations(id: Int): movieModel {
-        return RetrofitInstance.api.getRecommendations(id = id, key = API_KEY, language = "ru-RUS", page = 1)
+    suspend fun getRecommendations(id: Int, page: Int): movieModel {
+        return RetrofitInstance.api.getRecommendations(
+            id = id,
+            key = API_KEY,
+            language = "ru-RUS",
+            page = page
+        )
     }
 
-    suspend fun getSimilarMovie(id: Int): movieModel {
-        return RetrofitInstance.api.getSimilarMovie(id = id, key = API_KEY, language = "ru-RUS", page = 1)
+    suspend fun getSimilarMovie(id: Int, page: Int): movieModel {
+        return RetrofitInstance.api.getSimilarMovie(
+            id = id,
+            key = API_KEY,
+            language = "ru-RUS",
+            page = page
+        )
     }
 }

@@ -22,7 +22,7 @@ class GetRecommendationsPaging (
         val page = params.key ?: 1
 
         return try {
-            val responses = repository.getRecommendations(id = id)
+            val responses = repository.getRecommendations(id = id, page = page)
             toLoadResult(responses, page)
         }catch (e: Exception) {
             LoadResult.Error(e)

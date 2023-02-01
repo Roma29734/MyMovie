@@ -11,7 +11,7 @@ class GetNowPlayingCase @Inject constructor(private val repository: RemoteReposi
     suspend operator fun invoke() : Flow<Resource<movieModel>> = flow {
         try {
             emit(Resource.Loading())
-            val result = repository.getNowPlaying()
+            val result = repository.getNowPlaying(1)
             emit(Resource.Success(result))
         } catch (e: Exception) {
             emit(Resource.Error("ошибка"))

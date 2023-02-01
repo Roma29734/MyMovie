@@ -11,7 +11,7 @@ class GetPopularMovieCase @Inject constructor(private val repository: RemoteRepo
     operator fun invoke (): Flow<Resource<movieModel>> = flow {
         try {
             emit(Resource.Loading())
-            val result = repository.getPopularMovie()
+            val result = repository.getPopularMovie(1)
             emit(Resource.Success(result))
         } catch (e: Exception) {
             emit(Resource.Error("ошибка"))

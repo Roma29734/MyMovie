@@ -20,7 +20,7 @@ class GetNowPlayingPaging (
         val page = params.key ?: 1
 
         return try {
-            val responses = repository.getNowPlaying()
+            val responses = repository.getNowPlaying(page)
             toLoadResult(responses, page)
         }catch (e: Exception) {
             LoadResult.Error(e)

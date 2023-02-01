@@ -21,7 +21,7 @@ class GetPopularMoviePaging constructor(
         val page = params.key ?: 1
 
         return try {
-            val responses = repository.getPopularMovie()
+            val responses = repository.getPopularMovie(page)
             toLoadResult(responses, page)
         }catch (e: Exception) {
             LoadResult.Error(e)

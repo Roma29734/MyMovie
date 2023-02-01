@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">MyMovie</string>
     <!-- TODO: Remove or change this placeholder text -->
+    <string name="Movie">Movie</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_login">LoginActivity</string>
     <string name="prompt_email">Email</string>
@@ -20,4 +21,9 @@
     <string name="similarMovie">Похожие фильмы</string>
     <string name="sing_or_registr">Войти/Зарегестрироваться</string>
     <string name="password">Password</string>
+
+    <string name="TopRated">Top Rated</string>
+    <string name="Popular">Popular</string>
+    <string name="NowPlaying">Now Playing</string>
+    <string name="Upcoming">Upcoming</string>
 </resources>

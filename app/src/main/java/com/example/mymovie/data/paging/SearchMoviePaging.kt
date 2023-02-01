@@ -22,7 +22,7 @@ class SearchMoviePaging(
         val page = params.key ?: 1
 
         return try {
-            val responses = repository.searchMovie(query = query)
+            val responses = repository.searchMovie(query = query, page)
             toLoadResult(responses, page)
         } catch (e: Exception) {
             LoadResult.Error(e)

@@ -11,7 +11,7 @@ class SearchMovieCase @Inject constructor(private val repository: RemoteReposito
     suspend operator fun invoke(query: String): Flow<Resource<movieModel>> = flow {
         try {
             emit(Resource.Loading())
-            val result = repository.searchMovie(query)
+            val result = repository.searchMovie(query, 1)
             emit(Resource.Success(result))
         } catch (e: Exception) {
             emit(Resource.Error(e.toString()))

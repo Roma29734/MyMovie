@@ -22,7 +22,7 @@ class GetSimilarMoviePaging (
         val page = params.key ?: 1
 
         return try {
-            val responses = repository.getSimilarMovie(id = id)
+            val responses = repository.getSimilarMovie(id = id, page = page)
             toLoadResult(responses, page)
         }catch (e: Exception) {
             LoadResult.Error(e)

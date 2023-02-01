@@ -11,7 +11,7 @@ class GetUpcomingMovieCase @Inject constructor(private val repository: RemoteRep
     operator fun invoke (): Flow<Resource<movieModel>> = flow {
         try {
             emit(Resource.Loading())
-            val result = repository.getUpcomingMovie()
+            val result = repository.getUpcomingMovie(1)
             emit(Resource.Success(result))
         } catch (e: Exception) {
             emit(com.example.mymovie.utils.Resource.Error("ошибка"))

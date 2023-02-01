@@ -11,7 +11,7 @@ class GetRecommendationsCase @Inject constructor(private val repository: RemoteR
     suspend operator fun invoke(id: Int): Flow<Resource<movieModel>> = flow {
         try {
             emit(Resource.Loading())
-            val result = repository.getRecommendations(id)
+            val result = repository.getRecommendations(id, 1)
             emit(Resource.Success(result))
         } catch (e: Exception) {
             emit(Resource.Error("ошибка"))

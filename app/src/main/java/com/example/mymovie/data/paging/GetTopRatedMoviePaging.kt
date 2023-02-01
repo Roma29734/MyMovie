@@ -21,7 +21,7 @@ class GetTopRatedMoviePaging(
         val page = params.key ?: 1
 
         return try {
-            val responses = repository.getTopRatedMovie()
+            val responses = repository.getTopRatedMovie(page)
             toLoadResult(responses, page)
         }catch (e: Exception) {
             LoadResult.Error(e)

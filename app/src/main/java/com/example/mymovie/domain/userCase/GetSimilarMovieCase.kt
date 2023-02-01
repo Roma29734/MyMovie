@@ -11,7 +11,7 @@ class GetSimilarMovieCase @Inject constructor(private val repository: RemoteRepo
     suspend operator fun invoke(id: Int): Flow<Resource<movieModel>> = flow {
         try {
             emit(Resource.Loading())
-            val result = repository.getSimilarMovie(id)
+            val result = repository.getSimilarMovie(id, 1)
             emit(Resource.Success(result))
         } catch (e: Exception) {
             emit(Resource.Error("ошибка"))

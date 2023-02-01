@@ -21,7 +21,7 @@ class GetUpcomingMoviePaging (
         val page = params.key ?: 1
 
         return try {
-            val responses = repository.getUpcomingMovie()
+            val responses = repository.getUpcomingMovie(page)
             toLoadResult(responses, page)
         }catch (e: Exception) {
             LoadResult.Error(e)
