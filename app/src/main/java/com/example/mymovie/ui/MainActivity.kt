@@ -43,10 +43,6 @@ class MainActivity : AppCompatActivity() {
         startActivity(Intent(this, MainActivity::class.java))
         finish()
     }
-
-    override fun onStart() {
-        super.onStart()
-    }
 }
 
 

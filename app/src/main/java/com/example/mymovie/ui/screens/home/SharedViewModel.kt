@@ -1,7 +1,9 @@
 package com.example.mymovie.ui.screens.home
 
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import androidx.paging.PagingData
+import androidx.paging.cachedIn
 import com.example.mymovie.data.model.Result
 import com.example.mymovie.data.paging.PagingRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -14,7 +16,7 @@ class SharedViewModel @Inject constructor(
 ): ViewModel() {
 
     fun getTopRatedFlow(): Flow<PagingData<Result>> {
-        return pagingRepository.getTopRatedMovie()
+        return pagingRepository.getTopRatedMovie().cachedIn(viewModelScope)
     }
 
     fun getPopularMovie(): Flow<PagingData<Result>> {

@@ -29,7 +29,7 @@ class UpcomingFragment :
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        adapter.callBackDel = {
+        adapter.callBackNav = {
             val action = DetailFragmentDirections.actionDetailFragmentSelf(it)
             Navigation.findNavController(view).navigate(action)
         }

@@ -21,9 +21,9 @@
     <string name="similarMovie">Похожие фильмы</string>
     <string name="sing_or_registr">Войти/Зарегестрироваться</string>
     <string name="password">Password</string>
-
     <string name="TopRated">Top Rated</string>
     <string name="Popular">Popular</string>
     <string name="NowPlaying">Now Playing</string>
     <string name="Upcoming">Upcoming</string>
+    <string name="more_movie_detail">Подробнее</string>
 </resources>

@@ -12,6 +12,7 @@ abstract class BaseFragment<B : ViewBinding>(private val inflate: Inflate<B>) :
     Fragment(){
     private var _viewBinding: B? = null
     protected val binding get() = checkNotNull(_viewBinding)
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,

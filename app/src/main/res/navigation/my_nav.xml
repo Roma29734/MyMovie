@@ -49,5 +49,14 @@
             android:id="@+id/action_search_to_detailFragment"
             app:destination="@id/detailFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/topRatedFragment"
+        android:name="com.example.mymovie.ui.screens.home.topRated.TopRatedFragment"
+        android:label="fragment_top_rated"
+        tools:layout="@layout/fragment_top_rated" >
+        <action
+            android:id="@+id/action_topRatedFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
+    </fragment>
 
 </navigation>

@@ -37,11 +37,11 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>(FragmentDetailBinding
         if (valueBool == true) binding.toolBar.imageButtonFav.setImageResource(R.drawable.ic_fav_yes)
         else binding.toolBar.imageButtonFav.setImageResource(R.drawable.ic_fav_non)
 
-        recommendationsAdapter.callBackDel = {
+        recommendationsAdapter.callBackNav = {
             val action = DetailFragmentDirections.actionDetailFragmentSelf(it)
             Navigation.findNavController(view).navigate(action)
         }
-        similarAdapter.callBackDel = {
+        similarAdapter.callBackNav = {
             val action = DetailFragmentDirections.actionDetailFragmentSelf(it)
             Navigation.findNavController(view).navigate(action)
         }
