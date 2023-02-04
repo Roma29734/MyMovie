@@ -8,8 +8,10 @@ import androidx.navigation.Navigation
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.mymovie.base.BaseFragment
+import com.example.mymovie.data.model.Result
 import com.example.mymovie.databinding.FragmentTopRatedBinding
 import com.example.mymovie.ui.adapter.MoviePagingAdapter
+import com.example.mymovie.ui.screens.home.HomeFragmentDirections
 import com.example.mymovie.ui.screens.home.SharedViewModel
 import com.example.mymovie.ui.view.BottomSheetDialogMovieDetail
 import dagger.hilt.android.AndroidEntryPoint
@@ -28,13 +30,7 @@ class TopRatedFragment :
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        adapter.showBottomSheetDialog = {
-//            val action = TopRatedFragmentDirections.actionTopRatedFragmentToDetailFragment(it)
-//            val actionOne = Navigation.findNavController(view).navigate(action)
-
-            val bottomSheet = BottomSheetDialogMovieDetail(it)
-            bottomSheet.show(childFragmentManager, "aboba")
-        }
+        adapter.showBottomSheetDialog = { setupBottomSheet(it) }
 
         binding.recycler.layoutManager = GridLayoutManager(context, 2)
         binding.recycler.adapter = adapter
@@ -43,5 +39,14 @@ class TopRatedFragment :
                 adapter.submitData(it)
             }
         }
+    }
+
+    private fun setupBottomSheet(result: Result) {
+        val bottomSheet = BottomSheetDialogMovieDetail(result)
+        bottomSheet.callBackNav = {
+            val action = HomeFragmentDirections.actionRootFragmentToDetailFragment(it)
+            mainNavController.navigate(action)
+        }
+        bottomSheet.show(childFragmentManager, "aboba")
     }
 }

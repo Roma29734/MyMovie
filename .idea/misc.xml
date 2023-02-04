@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/tehnicals/MyMovie/app/src/main/res/drawable/bottom_nav_item_color.xml" value="0.1285" />
+        <entry key="..\:/tehnicals/MyMovie/app/src/main/res/drawable/bottom_sheet_backround_border.xml" value="0.1795" />
         <entry key="..\:/tehnicals/MyMovie/app/src/main/res/drawable/ic_fav_yes.xml" value="0.177" />
         <entry key="..\:/tehnicals/MyMovie/app/src/main/res/drawable/ic_home_bar.xml" value="0.1285" />
         <entry key="..\:/tehnicals/MyMovie/app/src/main/res/drawable/ic_star_non_state.xml" value="0.1285" />
@@ -24,7 +25,7 @@
         <entry key="..\:/tehnicals/MyMovie/app/src/main/res/layout/activity_autification.xml" value="0.25" />
         <entry key="..\:/tehnicals/MyMovie/app/src/main/res/layout/activity_login.xml" value="0.25" />
         <entry key="..\:/tehnicals/MyMovie/app/src/main/res/layout/activity_main.xml" value="0.22" />
-        <entry key="..\:/tehnicals/MyMovie/app/src/main/res/layout/bottom_sheet_movie_detail.xml" value="0.33177083333333335" />
+        <entry key="..\:/tehnicals/MyMovie/app/src/main/res/layout/bottom_sheet_movie_detail.xml" value="0.5" />
         <entry key="..\:/tehnicals/MyMovie/app/src/main/res/layout/card_row.xml" value="0.264" />
         <entry key="..\:/tehnicals/MyMovie/app/src/main/res/layout/card_vertical_row.xml" value="0.296987087517934" />
         <entry key="..\:/tehnicals/MyMovie/app/src/main/res/layout/custom_action_bar.xml" value="0.24895833333333334" />
